@@ -29,6 +29,7 @@ echo "$start_time" > "${RUN_DIR}/filter_started"
 if [ "$SUPER_PLATFORM" == "slurm" ]; then
    ulimit -s unlimited
    export MPI_SHEPHERD=FALSE
+   echo "pwd is $(pwd)"
    srun ./filter || exit 1
 
 elif [ "$SUPER_PLATFORM" == "derecho" ]; then

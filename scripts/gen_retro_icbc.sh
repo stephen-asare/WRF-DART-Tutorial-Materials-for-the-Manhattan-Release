@@ -22,9 +22,10 @@ echo "gen_retro_icbc.sh is running in $(pwd)"
 ########################################################################
 #SBATCH --job-name="gen_retro_icbc"
 #SBATCH --ntasks=15
-#SBATCH -A chipilskigroup_q
+#SBATCH -A backfill2
 #SBATCH -t 00:10:00
-#SBATCH --partition=chipilskigroup_q
+#SBATCH --partition=backfill2
+#SBATCH -C "intel,YEAR2013|intel,YEAR2015|intel,YEAR2017|intel,YEAR2018|intel,YEAR2019"
 #SBATCH --output=gen_retro_icbc.%j.log # Standard output and error log exclusive
 #SBATCH --export=AL
 #######################################################################
@@ -32,7 +33,7 @@ echo "gen_retro_icbc.sh is running in $(pwd)"
 
 datea=2017042700
 datefnl=2017042712 # set this appropriately #%%%#
-paramfile="/gpfs/home/sa24m/scratch/base/scripts/param.sh"   # set this appropriately #%%%#
+paramfile="/gpfs/home/sa24m/Research/wrf_dart_tutorials/run_with_no_changes/scripts/param.sh"   # set this appropriately #%%%#
 
 
 source "$paramfile"
@@ -51,10 +52,13 @@ while true; do
    fi
 
    cd "${ICBC_DIR}"
+   echo ""
+   echo $(pwd)
+   echo ""
    ${LINK} "${RUN_DIR}/input.nml" input.nml
    # ${REMOVE} gfs*pgrb2* *grib2
 
-  ${LINK} ${GEO_FILES_DIR}/geo_*.nc .
+#   ${LINK} ${GEO_FILES_DIR}/geo_*.nc .
 
    #  prepare to run WPS ungrib and metgrid
    start_date=$(echo $datea 0 -w | ${DART_DIR}/models/wrf/work/advance_time)
@@ -94,7 +98,7 @@ EOF
    # gribfile_a=${GRIB_DATA_DIR}/${datea}/gfs_ds084.1/gfs.0p25.${datea}.f000.grib2
    # gribfile_a=${BASE_DIR}/gfs.0p25.${datea}.f000.grib2
    # gribfile_b=/gpfs/home/sa24m/scratch/DATA/ERA_5_input/level_dart_new_api.grib
-   gribfile_a=/gpfs/home/sa24m/scratch/DATA/ERA_5_input/*_dart_new_api.grib
+   gribfile_a=/gpfs/research/chipilskigroup/stephen_asare/wrf_dart_debug_data/data/*_dart_new_api.grib
    # gribfile_b=${GRIB_DATA_DIR}/${datea}/gfs_ds084.1/gfs.0p25.${datea}.f006.grib2
    # gribfile_b=/gpfs/home/sa24m/Research/base/gfs.0p25.2017042700.f006.grib2
    # gribfile_a=/gpfs/home/sa24m/Research/base/gfs.0p25.2017042700.f000.grib2
@@ -116,7 +120,7 @@ EOF
    ${REMOVE} output.metgrid.exe
    "${WPS_SRC_DIR}/metgrid.exe" &> output.metgrid.exe
 
-   ${COPY} ${WPS_SRC_DIR}/met_em.d01.* .
+   # ${COPY} ${WPS_SRC_DIR}/met_em.d01.* .
 
    datef=$(echo "$datea $ASSIM_INT_HOURS" | "${DART_DIR}/models/wrf/work/advance_time")
    gdatef=( $(echo "$datef 0 -g" | "${DART_DIR}/models/wrf/work/advance_time") )
@@ -197,6 +201,7 @@ EOF
       echo "#SBATCH --error=run_real.err" >> script.sed
       echo "#SBATCH --ntasks=${ADVANCE_PROCS}" >> script.sed
       echo "#SBATCH --mem-per-cpu=8000M" >> script.sed
+      echo "#SBATCH -C 'intel,YEAR2013|intel,YEAR2015|intel,YEAR2017|intel,YEAR2018|intel,YEAR2019'" >> script.sed
       echo "#SBATCH --export=ALL" >> script.sed
       echo "#======================================"  >> script.sed
       echo "" >> script.sed
@@ -204,7 +209,7 @@ EOF
       echo 's%${1}%'"${paramfile}%g"                   >> script.sed
       sed -f script.sed "${SHELL_SCRIPTS_DIR}/real.sh">real.sh.save
       mv real.sh.save real.sh
-      sbatch real.sh
+      sbatch real.sh "$paramfile"
 
       # need to look for something to know when this job is done
       while [ ! -e "${ICBC_DIR}/real_done" ]; do
@@ -215,8 +220,10 @@ EOF
 
       #  move output files to storage
       gdate=($(echo "$date1 0 -g" | "${DART_DIR}/models/wrf/work/advance_time"))
+      echo "Moving wrfinput for gdate = ${gdate[0]} ${gdate[1]} into ${OUTPUT_DIR}/${datea}"
       ${MOVE} wrfinput_d01 "${OUTPUT_DIR}/${datea}/wrfinput_d01_${gdate[0]}_${gdate[1]}_mean"
       if [ $n -eq 1 ]; then
+         echo "For n = $n and Moving wrfbdy_d01 into ${OUTPUT_DIR}/${datea}"
          ${MOVE} wrfbdy_d01 "${OUTPUT_DIR}/${datea}/wrfbdy_d01_${gdatef[0]}_${gdatef[1]}_mean"
          cp namelist.input "${OUTPUT_DIR}/${datea}/"
       fi
@@ -226,7 +233,7 @@ EOF
    done
 
    # move to next time, or exit if final time is reached
-   if [ "$datea" == "$datefnl" ]; then
+   if [ "$datea" -ge "$datefnl" ]; then
       echo "Reached the final date "
       echo "Script exiting normally"
       exit 0

@@ -332,8 +332,10 @@ EOF
 
         if [ "$USE_WRFVAR" -eq 1 ]; then
             bdyfiles=(${CENTRALDIR}/WRF/wrfbdy_d01_*_mean)
+            echo "bdyfiles = ${bdyfiles[@]}"
         else
             bdyfiles=($(ls ${CENTRALDIR}/WRF/wrfbdy_d01_*_"${ensemble_member}" | grep -v mean))
+            echo "bdyfiles = ${bdyfiles[@]}"
         fi
         echo "${bdyfiles[@]}"
         keylist=()
@@ -384,6 +386,7 @@ EOF
 
     ifile=0
     bdyfiles_count=${#bdyfiles[@]}
+    echo "bdyfiles_count = $bdyfiles_count"
     while [ "${keys[$ifile]}" -le "$wrfkey" ]; do
         if [ "$ifile" -lt "$bdyfiles_count" ]; then
             ifile=$((ifile + 1))
@@ -398,6 +401,7 @@ EOF
     # in the centraldir, it will be called here.
     if [ "$USE_NOISE" -eq 1 ]; then
         "${CENTRALDIR}/add_noise.sh" "$wrfsecs" "$wrfdays" "$state_copy" "$ensemble_member" "$temp_dir" "$CENTRALDIR"
+        echo "add_noise.sh executed"
     fi
 
     ## Run the replace_wrf_fields utility to update the static fields
@@ -408,6 +412,7 @@ EOF
     ###############################################################
     # Advance the model with new BC until target time is reached. #
     ###############################################################
+    echo "advance_model.sh: advancing model with new BC until target time is reached"
 
     while [ "$wrfkey" -lt "$targkey" ]; do
 
@@ -419,8 +424,10 @@ EOF
 
             if [ "$USE_WRFVAR" -eq 1 ]; then
                 ${COPY} "${CENTRALDIR}/WRF/wrfbdy_d01_${iday}_${isec}_mean" wrfbdy_d01
+                echo "linked wrfbdy_d01 to wrfbdy_d01_${iday}_${isec}_mean"
             else
                 ${COPY} "${CENTRALDIR}/WRF/wrfbdy_d01_${iday}_${isec}_${ensemble_member}" wrfbdy_d01
+                echo "linked wrfbdy_d01 to wrfbdy_d01_${iday}_${isec}_${ensemble_member}"
             fi
 
         fi
@@ -520,6 +527,7 @@ EOF
             sed -f script.sed "${CENTRALDIR}/namelist.input" > namelist.input
 
             ${LN} "${CENTRALDIR}/WRF/wrfinput_d01_${targdays}_${targsecs}_mean" ./fg
+            echo "linked fg to wrfinput_d01_${targdays}_${targsecs}_mean"
             echo "END_YEAR2 = ${END_YEAR}"
             ################################
             ## Instead of running wrfda, just add static perturbations from the pert bank
@@ -537,6 +545,7 @@ EOF
             ./nclrun3.out >& add_perts.out
             if [ ! -s add_perts.err ]; then
                 echo "Perts added to member ${ensemble_member}"
+                echo "Second perts added to member ${ensemble_member} using wrfinput_d01_${targdays}_${targsecs}_mean"
             else
                 echo "Error! Non-zero status returned from add_bank_perts.ncl. Check ${RUN_DIR}/advance_temp${ensemble_member}/add_perts.err."
                 cat add_perts.err
@@ -556,6 +565,7 @@ EOF
                 ${MOVE} fg wrfinput_next_mean
             fi
 
+            echo "Run pert_wrf_bc to update boundary conditions using wrfinput_d01_${targdays}_${targsecs}_mean, wrfinput_d01_${gdatef[0]}_${gdatef[1]}_mean and wrfbdy_d01_${gdatef[0]}_${gdatef[1]}_mean"
             "${CENTRALDIR}/pert_wrf_bc" >& out.pert_wrf_bc
             ${REMOVE} wrfinput_this wrfinput_next wrfbdy_this
             if [ -e wrfinput_this_mean ]; then ${REMOVE} wrfinput_this_mean wrfinput_next_mean; fi
@@ -563,6 +573,7 @@ EOF
         else  # Update boundary conditions from existing wrfbdy files
 
             echo "$infl" | "${CENTRALDIR}/update_wrf_bc" >& out.update_wrf_bc
+            echo "Updated boundary conditions using existing wrfbdy files"
 
         fi
 
@@ -688,7 +699,7 @@ EOF
         export MPI_SHEPHERD=FALSE
 
         ${ADV_MOD_COMMAND} > rsl.out.integration 2>&1
-        echo "ADV_MOD_COMMAND = ${ADV_MOD_COMMAND}"
+        echo "ADV_MOD_COMMAND = ${ADV_MOD_COMMAND} Start hour = ${START_HOUR} End hour = ${END_HOUR} Start sec = ${START_SEC} End sec = ${END_SEC}"
 
         echo "1"
         if [ -e rsl.out.0000 ]; then cat rsl.out.0000 >> rsl.out.integration; fi
@@ -709,6 +720,7 @@ EOF
             dn=1
             which ncks >& /dev/null
             while [ "$dn" -le "$num_domains" ]; do
+            echo "Extracting precip for domain $dn"
                 ncks -h -O -F -v RAINC,RAINNC "wrfout_d0${dn}_${END_STRING}" wrf_precip.nc
                 ${MOVE} wrf_precip.nc "${CENTRALDIR}/wrf_precip_d0${dn}_${END_STRING}_${ensemble_member}"
                 dn=$((dn + 1))
@@ -718,6 +730,7 @@ EOF
         # Zip up the wrfin file
         dn=1
         while [ "$dn" -le "$num_domains" ]; do
+            echo "move wrfinput_d0${dn} to wrfinput_d0${dn}_${ensemble_member} and gzip it"
             ${MOVE} "wrfinput_d0${dn}" "wrfinput_d0${dn}_${ensemble_member}"
             gzip "wrfinput_d0${dn}_${ensemble_member}" &
             dn=$((dn + 1))
@@ -727,6 +740,7 @@ EOF
         dn=1
         while [ "$dn" -le "$num_domains" ]; do
             if [ "$ensemble_member" -le "$save_ensemble_member" ]; then
+                echo "Copy the forecast file wrfout_d0${dn}_${END_STRING} to ${WRFOUTDIR}/wrfout_d0${dn}_${END_STRING}_${ensemble_member}"
                 ${COPY} "wrfout_d0${dn}_${END_STRING}" "${WRFOUTDIR}/wrfout_d0${dn}_${END_STRING}_${ensemble_member}"
             fi
             # If the wrfinput file zip operation is finished, wrfinput_d0${dn}_$ensemble_member should no
@@ -736,6 +750,7 @@ EOF
                 sleep 3
                 touch "${CENTRALDIR}/HAD_TO_WAIT"
             done
+            echo "Move the analaysis file to WRFIn directory and rename the forecast file wrfout_d0${dn}_${END_STRING} as wrfinput_d0${dn}"
             ${MOVE} "wrfinput_d0${dn}_${ensemble_member}.gz" "../WRFIN/wrfinput_d0${dn}_${ensemble_member}.gz"
             ${MOVE} "wrfout_d0${dn}_${END_STRING}" "wrfinput_d0${dn}"
             dn=$((dn + 1))
@@ -759,10 +774,12 @@ EOF
     ##############################################
     # Withdraw LSM data to use in next cycle   This is remnant from the Lanai days, we now pull soil state
     # together with everything else
+    echo "Withdrawing LSM data to use in next cycle"
     if [ -e "${CENTRALDIR}/fixed_domain_info" ]; then MY_NUM_DOMAINS=1; fi
     if [ -e "${CENTRALDIR}/append_lsm_data" ]; then
         dn=1
         while [ "$dn" -le "$num_domains" ]; do
+            echo "Extracting LSM data for domain $dn"
             ncks -h -F -A -a -v TSLB,SMOIS,SH2O,TSK "wrfinput_d0${dn}" lsm_data.nc
             ncrename -h -v TSLB,TSLB_d0${dn} -v SMOIS,SMOIS_d0${dn} -v SH2O,SH2O_d0${dn} -v TSK,TSK_d0${dn} \
                 -d west_east,west_east_d0${dn} -d south_north,south_north_d0${dn} \

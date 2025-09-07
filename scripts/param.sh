@@ -32,7 +32,7 @@ NUM_DOMAINS=1
 #  Directories where things are run
 #  IMPORTANT : Scripts provided rely on this directory structure and names relative to BASE_DIR.
 #              Do not change, otherwise tutorial will fail.    
-BASE_DIR="/gpfs/home/sa24m/scratch/base"     # set this appropriately #%%%#
+BASE_DIR="/gpfs/home/sa24m/scratch/run2"     # set this appropriately #%%%#
 RUN_DIR="${BASE_DIR}/rundir"
 TEMPLATE_DIR="${BASE_DIR}/template"
 OBSPROC_DIR="${BASE_DIR}/obsproc"
@@ -43,11 +43,11 @@ OBS_DIAG_DIR="${BASE_DIR}/obs_diag"
 PERTS_DIR="${BASE_DIR}/perts"
 
 #  Assign path to DART, WRF, WPS and WRFDA build
-SHELL_SCRIPTS_DIR="${BASE_DIR}/scripts"
-DART_DIR="/gpfs/home/sa24m/scratch/DART/DART"                    # set this appropriately #%%%#
-WRF_DM_SRC_DIR="/gpfs/home/sa24m/scratch/WRF/V4.6.1"                    # set this appropriately #%%%#
-WPS_SRC_DIR="/gpfs/research/scratch/sa24m/WPS/V4.5"                      # set this appropriately #%%%#
-VAR_SRC_DIR="/gpfs/home/sa24m/scratch/WRFDA"                   # set this appropriately #%%%#
+SHELL_SCRIPTS_DIR="/gpfs/home/sa24m/Research/wrf_dart_tutorials/run_with_no_changes/scripts"
+DART_DIR="/gpfs/research/chipilskigroup/stephen_asare/models/DART/v11.11.1"                    # set this appropriately #%%%#
+WRF_DM_SRC_DIR="/gpfs/research/chipilskigroup/stephen_asare/models/WRF/V4.6.1"                    # set this appropriately #%%%#
+WPS_SRC_DIR="/gpfs/research/chipilskigroup/stephen_asare/models/WPS/V4.5"                      # set this appropriately #%%%#
+VAR_SRC_DIR="/gpfs/research/chipilskigroup/stephen_asare/models/WRFDA/V4.5.2"                   # set this appropriately #%%%#
 
 # for generating wrf template files
 GEO_FILES_DIR="/gpfs/research/scratch/sa24m/WPS/V4.5"            # set this appropriately #%%%#
@@ -66,7 +66,7 @@ OBS_VERIF_DAYS=7
 
 #  Generic queuing system parameters
 SUPER_PLATFORM='slurm'
-COMPUTER_CHARGE_ACCOUNT=chipilskigroup_q
+COMPUTER_CHARGE_ACCOUNT=backfill2
 #chipilskigroup_q                  # set this appropriately #%%%#
 EMAIL=sasare@fsu.edu                 # set this appropriately #%%%#
 
@@ -75,7 +75,7 @@ if [[ $SUPER_PLATFORM == "derecho" ]]; then
    # Set these appropriately for your PBS system  #%%%#  
    FILTER_QUEUE="main"
    FILTER_PRIORITY="premium"
-   FILTER_TIME=06:55:00
+   FILTER_TIME=00:55:00
    FILTER_NODES=2
    FILTER_PROCS=96
    FILTER_MPI=96
@@ -89,9 +89,9 @@ if [[ $SUPER_PLATFORM == "derecho" ]]; then
 else
    # 'LSF' queueing system example
    # Set these appropriately for your LSF or Slurm system #%%%# 
-   FILTER_QUEUE=chipilskigroup_q
+   FILTER_QUEUE=backfill2
    FILTER_TIME=06:59:00
-   ADVANCE_QUEUE=chipilskigroup_q
+   ADVANCE_QUEUE=backfill2
    ADVANCE_TIME=06:58:00
    ADVANCE_PRIORITY=normal
    FILTER_NODES=2
@@ -113,5 +113,4 @@ export LIST="ls"
 echo "param.sh done"
 
 
-#exit 0
 
