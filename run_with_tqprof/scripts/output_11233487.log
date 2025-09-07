@@ -1,0 +1,2798 @@
+wrapper done
++ set echo
++ date
++ echo Wed Aug 27 13:27:55 EDT 2025 Start
+Wed Aug 27 13:27:55 EDT 2025 Start
++ DATE=201704270000
++ export DATE
++ echo 201704270000
++ cut -c1-10
++ DATE_short=2017042700
++ export DATE_short
++ RC=0
++ [[ 201704270000 -le 201704271200 ]]
++ [ 201704270000 -ge 201704270600 ]
++ [ 0 -eq 0 ]
++ FCST_RANGE=0
++ export FCST_RANGE
++ FCST_MINUTE=15
++ export FCST_MINUTE
++ [ '' -eq 0 ]
++ [ 201704270000 -eq 201704271200 ]
++ [ 0 -eq 0 ]
++ /gpfs/research/chipilskigroup/stephen_asare/models/WRFDA/V4.5.2/var/build/da_advance_time.exe 201704270000 -3h -f ccyymmddhhnn
++ 2> /dev/null
++ PREV_DATE=201704262100
++ export PREV_DATE
++ echo 201704262100
++ awk '{print length}'
++ [ 12 -eq 10 ]
++ /gpfs/research/chipilskigroup/stephen_asare/models/WRFDA/V4.5.2/var/build/da_advance_time.exe 201704270000 0h15m -f ccyymmddhhnn
++ 2> /dev/null
++ FWD_DATE=201704270015
++ export FWD_DATE
++ echo '============'
+============
++ echo 201704262100
+201704262100
++ echo 201704270000
+201704270000
++ echo 201704270015
+201704270015
++ echo '============'
+============
++ echo 201704270000
++ cut -c1-4
++ YYYY=2017
++ export YYYY
++ echo 201704270000
++ cut -c5-6
++ MM=04
++ export MM
++ echo 201704270000
++ cut -c7-8
++ DD=27
++ export DD
++ echo 201704270000
++ cut -c9-10
++ HH=00
++ export HH
++ echo 201704270000
++ cut -c11-12
++ MN=00
++ export MN
++ echo 201704270015
++ cut -c1-4
++ YYYY1=2017
++ export YYYY1
++ echo 201704270015
++ cut -c5-6
++ MM1=04
++ export MM1
++ echo 201704270015
++ cut -c7-8
++ DD1=27
++ export DD1
++ echo 201704270015
++ cut -c9-10
++ HH1=00
++ export HH1
++ echo 201704270015
++ cut -c11-12
++ MN1=15
++ export MN1
++ FILE_DATE=2017-04-27_00:00:00
++ export FILE_DATE
++ true
++ [ 0 -eq 0 ]
++ WORK_DIR=/gpfs/home/sa24m/scratch/run3/run_witht_qprof/osse_out/wps_fc
++ export WORK_DIR
++ echo 'WORK_DIR = /gpfs/home/sa24m/scratch/run3/run_witht_qprof/osse_out/wps_fc'
+WORK_DIR = /gpfs/home/sa24m/scratch/run3/run_witht_qprof/osse_out/wps_fc
++ [[ ! -d /gpfs/home/sa24m/scratch/run3/run_witht_qprof/osse_out/wps_fc ]]
++ cd /gpfs/home/sa24m/scratch/run3/run_witht_qprof/osse_out/wps_fc
++ echo 'running wpsfc'
+running wpsfc
++ /gpfs/home/sa24m/Research/wrf_dart_tutorials/run_with_tqprof/run_wps_fc.ksh
++ 1> wps_run.log 2>& 1
++ RC=0
++ [[ 0 != 0 ]]
++ false
++ echo 222
+222
++ true
++ [ 00 -eq 00 ]
++ WORK_DIR=/gpfs/home/sa24m/scratch/run3/run_witht_qprof/osse_out/real_fc
++ export WORK_DIR
++ echo 'WORK_DIR = /gpfs/home/sa24m/scratch/run3/run_witht_qprof/osse_out/real_fc'
+WORK_DIR = /gpfs/home/sa24m/scratch/run3/run_witht_qprof/osse_out/real_fc
++ [[ ! -d /gpfs/home/sa24m/scratch/run3/run_witht_qprof/osse_out/real_fc ]]
++ mkdir -p /gpfs/home/sa24m/scratch/run3/run_witht_qprof/osse_out/real_fc
++ cd /gpfs/home/sa24m/scratch/run3/run_witht_qprof/osse_out/real_fc
++ /gpfs/home/sa24m/Research/wrf_dart_tutorials/run_with_tqprof/run_real_fc.ksh
++ 1> real_fc.log 2>& 1
++ RC=0
++ [[ 0 != 0 ]]
++ echo 3333
+3333
++ false
++ false
++ false
++ false
++ false
++ false
++ false
++ false
++ false
++ false
++ false
++ false
++ false
++ false
++ DATE=201704270015
++ export DATE
++ let CYCLE_NUMBER=0+1
++ [[ 201704270015 -le 201704271200 ]]
++ [ 201704270015 -ge 201704270600 ]
++ [ 1 -eq 0 ]
++ [ 1 -gt 0 ]
++ [ 0 -eq 0 ]
++ FCST_RANGE=6
++ export FCST_RANGE
++ FCST_MINUTE=0
++ export FCST_MINUTE
++ [ '' -eq 0 ]
++ [ 201704270015 -eq 201704271200 ]
++ [ 1 -eq 0 ]
++ /gpfs/research/chipilskigroup/stephen_asare/models/WRFDA/V4.5.2/var/build/da_advance_time.exe 201704270015 -15m -f ccyymmddhhnn
++ 2> /dev/null
++ PREV_DATE=201704270000
++ export PREV_DATE
++ echo 201704270000
++ awk '{print length}'
++ [ 12 -eq 10 ]
++ /gpfs/research/chipilskigroup/stephen_asare/models/WRFDA/V4.5.2/var/build/da_advance_time.exe 201704270015 6h0m -f ccyymmddhhnn
++ 2> /dev/null
++ FWD_DATE=201704270615
++ export FWD_DATE
++ echo '============'
+============
++ echo 201704270000
+201704270000
++ echo 201704270015
+201704270015
++ echo 201704270615
+201704270615
++ echo '============'
+============
++ echo 201704270015
++ cut -c1-4
++ YYYY=2017
++ export YYYY
++ echo 201704270015
++ cut -c5-6
++ MM=04
++ export MM
++ echo 201704270015
++ cut -c7-8
++ DD=27
++ export DD
++ echo 201704270015
++ cut -c9-10
++ HH=00
++ export HH
++ echo 201704270015
++ cut -c11-12
++ MN=15
++ export MN
++ echo 201704270615
++ cut -c1-4
++ YYYY1=2017
++ export YYYY1
++ echo 201704270615
++ cut -c5-6
++ MM1=04
++ export MM1
++ echo 201704270615
++ cut -c7-8
++ DD1=27
++ export DD1
++ echo 201704270615
++ cut -c9-10
++ HH1=06
++ export HH1
++ echo 201704270615
++ cut -c11-12
++ MN1=15
++ export MN1
++ FILE_DATE=2017-04-27_00:15:00
++ export FILE_DATE
++ true
++ [ 1 -eq 0 ]
++ false
++ echo 222
+222
++ true
++ [ 15 -eq 00 ]
++ echo 3333
+3333
++ false
++ false
++ false
++ false
++ false
++ false
++ false
++ false
++ false
++ false
++ false
++ false
++ false
++ false
++ DATE=201704270615
++ export DATE
++ let CYCLE_NUMBER=1+1
++ [[ 201704270615 -le 201704271200 ]]
++ [ 201704270615 -ge 201704270600 ]
++ let RADAR_NUMBER=0+1
++ [ 2 -eq 0 ]
++ [ 2 -gt 0 ]
++ [ 1 -eq 0 ]
++ [ 1 -gt 0 ]
++ [ 201704270615 -lt 201704271200 ]
++ FCST_RANGE=0
++ export FCST_RANGE
++ FCST_MINUTE=15
++ export FCST_MINUTE
++ [ '' -eq 0 ]
++ [ 201704270615 -eq 201704271200 ]
++ [ 2 -eq 0 ]
++ /gpfs/research/chipilskigroup/stephen_asare/models/WRFDA/V4.5.2/var/build/da_advance_time.exe 201704270615 -15m -f ccyymmddhhnn
++ 2> /dev/null
++ PREV_DATE=201704270600
++ export PREV_DATE
++ echo 201704270600
++ awk '{print length}'
++ [ 12 -eq 10 ]
++ /gpfs/research/chipilskigroup/stephen_asare/models/WRFDA/V4.5.2/var/build/da_advance_time.exe 201704270615 0h15m -f ccyymmddhhnn
++ 2> /dev/null
++ FWD_DATE=201704270630
++ export FWD_DATE
++ echo '============'
+============
++ echo 201704270600
+201704270600
++ echo 201704270615
+201704270615
++ echo 201704270630
+201704270630
++ echo '============'
+============
++ echo 201704270615
++ cut -c1-4
++ YYYY=2017
++ export YYYY
++ echo 201704270615
++ cut -c5-6
++ MM=04
++ export MM
++ echo 201704270615
++ cut -c7-8
++ DD=27
++ export DD
++ echo 201704270615
++ cut -c9-10
++ HH=06
++ export HH
++ echo 201704270615
++ cut -c11-12
++ MN=15
++ export MN
++ echo 201704270630
++ cut -c1-4
++ YYYY1=2017
++ export YYYY1
++ echo 201704270630
++ cut -c5-6
++ MM1=04
++ export MM1
++ echo 201704270630
++ cut -c7-8
++ DD1=27
++ export DD1
++ echo 201704270630
++ cut -c9-10
++ HH1=06
++ export HH1
++ echo 201704270630
++ cut -c11-12
++ MN1=30
++ export MN1
++ FILE_DATE=2017-04-27_06:15:00
++ export FILE_DATE
++ true
++ [ 2 -eq 0 ]
++ false
++ echo 222
+222
++ true
++ [ 15 -eq 00 ]
++ echo 3333
+3333
++ false
++ false
++ false
++ false
++ false
++ false
++ false
++ false
++ false
++ false
++ false
++ false
++ false
++ false
++ DATE=201704270630
++ export DATE
++ let CYCLE_NUMBER=2+1
++ [[ 201704270630 -le 201704271200 ]]
++ [ 201704270630 -ge 201704270600 ]
++ let RADAR_NUMBER=1+1
++ [ 3 -eq 0 ]
++ [ 3 -gt 0 ]
++ [ 2 -eq 0 ]
++ [ 2 -gt 0 ]
++ [ 201704270630 -lt 201704271200 ]
++ FCST_RANGE=0
++ export FCST_RANGE
++ FCST_MINUTE=15
++ export FCST_MINUTE
++ [ '' -eq 0 ]
++ [ 201704270630 -eq 201704271200 ]
++ [ 3 -eq 0 ]
++ /gpfs/research/chipilskigroup/stephen_asare/models/WRFDA/V4.5.2/var/build/da_advance_time.exe 201704270630 -15m -f ccyymmddhhnn
++ 2> /dev/null
++ PREV_DATE=201704270615
++ export PREV_DATE
++ echo 201704270615
++ awk '{print length}'
++ [ 12 -eq 10 ]
++ /gpfs/research/chipilskigroup/stephen_asare/models/WRFDA/V4.5.2/var/build/da_advance_time.exe 201704270630 0h15m -f ccyymmddhhnn
++ 2> /dev/null
++ FWD_DATE=201704270645
++ export FWD_DATE
++ echo '============'
+============
++ echo 201704270615
+201704270615
++ echo 201704270630
+201704270630
++ echo 201704270645
+201704270645
++ echo '============'
+============
++ echo 201704270630
++ cut -c1-4
++ YYYY=2017
++ export YYYY
++ echo 201704270630
++ cut -c5-6
++ MM=04
++ export MM
++ echo 201704270630
++ cut -c7-8
++ DD=27
++ export DD
++ echo 201704270630
++ cut -c9-10
++ HH=06
++ export HH
++ echo 201704270630
++ cut -c11-12
++ MN=30
++ export MN
++ echo 201704270645
++ cut -c1-4
++ YYYY1=2017
++ export YYYY1
++ echo 201704270645
++ cut -c5-6
++ MM1=04
++ export MM1
++ echo 201704270645
++ cut -c7-8
++ DD1=27
++ export DD1
++ echo 201704270645
++ cut -c9-10
++ HH1=06
++ export HH1
++ echo 201704270645
++ cut -c11-12
++ MN1=45
++ export MN1
++ FILE_DATE=2017-04-27_06:30:00
++ export FILE_DATE
++ true
++ [ 3 -eq 0 ]
++ false
++ echo 222
+222
++ true
++ [ 30 -eq 00 ]
++ echo 3333
+3333
++ false
++ false
++ false
++ false
++ false
++ false
++ false
++ false
++ false
++ false
++ false
++ false
++ false
++ false
++ DATE=201704270645
++ export DATE
++ let CYCLE_NUMBER=3+1
++ [[ 201704270645 -le 201704271200 ]]
++ [ 201704270645 -ge 201704270600 ]
++ let RADAR_NUMBER=2+1
++ [ 4 -eq 0 ]
++ [ 4 -gt 0 ]
++ [ 3 -eq 0 ]
++ [ 3 -gt 0 ]
++ [ 201704270645 -lt 201704271200 ]
++ FCST_RANGE=0
++ export FCST_RANGE
++ FCST_MINUTE=15
++ export FCST_MINUTE
++ [ '' -eq 0 ]
++ [ 201704270645 -eq 201704271200 ]
++ [ 4 -eq 0 ]
++ /gpfs/research/chipilskigroup/stephen_asare/models/WRFDA/V4.5.2/var/build/da_advance_time.exe 201704270645 -15m -f ccyymmddhhnn
++ 2> /dev/null
++ PREV_DATE=201704270630
++ export PREV_DATE
++ echo 201704270630
++ awk '{print length}'
++ [ 12 -eq 10 ]
++ /gpfs/research/chipilskigroup/stephen_asare/models/WRFDA/V4.5.2/var/build/da_advance_time.exe 201704270645 0h15m -f ccyymmddhhnn
++ 2> /dev/null
++ FWD_DATE=201704270700
++ export FWD_DATE
++ echo '============'
+============
++ echo 201704270630
+201704270630
++ echo 201704270645
+201704270645
++ echo 201704270700
+201704270700
++ echo '============'
+============
++ echo 201704270645
++ cut -c1-4
++ YYYY=2017
++ export YYYY
++ echo 201704270645
++ cut -c5-6
++ MM=04
++ export MM
++ echo 201704270645
++ cut -c7-8
++ DD=27
++ export DD
++ echo 201704270645
++ cut -c9-10
++ HH=06
++ export HH
++ echo 201704270645
++ cut -c11-12
++ MN=45
++ export MN
++ echo 201704270700
++ cut -c1-4
++ YYYY1=2017
++ export YYYY1
++ echo 201704270700
++ cut -c5-6
++ MM1=04
++ export MM1
++ echo 201704270700
++ cut -c7-8
++ DD1=27
++ export DD1
++ cut -c9-10
++ echo 201704270700
++ HH1=07
++ export HH1
++ echo 201704270700
++ cut -c11-12
++ MN1=00
++ export MN1
++ FILE_DATE=2017-04-27_06:45:00
++ export FILE_DATE
++ true
++ [ 4 -eq 0 ]
++ false
++ echo 222
+222
++ true
++ [ 45 -eq 00 ]
++ echo 3333
+3333
++ false
++ false
++ false
++ false
++ false
++ false
++ false
++ false
++ false
++ false
++ false
++ false
++ false
++ false
++ DATE=201704270700
++ export DATE
++ let CYCLE_NUMBER=4+1
++ [[ 201704270700 -le 201704271200 ]]
++ [ 201704270700 -ge 201704270600 ]
++ let RADAR_NUMBER=3+1
++ [ 5 -eq 0 ]
++ [ 5 -gt 0 ]
++ [ 4 -eq 0 ]
++ [ 4 -gt 0 ]
++ [ 201704270700 -lt 201704271200 ]
++ FCST_RANGE=0
++ export FCST_RANGE
++ FCST_MINUTE=15
++ export FCST_MINUTE
++ [ '' -eq 0 ]
++ [ 201704270700 -eq 201704271200 ]
++ [ 5 -eq 0 ]
++ /gpfs/research/chipilskigroup/stephen_asare/models/WRFDA/V4.5.2/var/build/da_advance_time.exe 201704270700 -15m -f ccyymmddhhnn
++ 2> /dev/null
++ PREV_DATE=201704270645
++ export PREV_DATE
++ echo 201704270645
++ awk '{print length}'
++ [ 12 -eq 10 ]
++ /gpfs/research/chipilskigroup/stephen_asare/models/WRFDA/V4.5.2/var/build/da_advance_time.exe 201704270700 0h15m -f ccyymmddhhnn
++ 2> /dev/null
++ FWD_DATE=201704270715
++ export FWD_DATE
++ echo '============'
+============
++ echo 201704270645
+201704270645
++ echo 201704270700
+201704270700
++ echo 201704270715
+201704270715
++ echo '============'
+============
++ echo 201704270700
++ cut -c1-4
++ YYYY=2017
++ export YYYY
++ echo 201704270700
++ cut -c5-6
++ MM=04
++ export MM
++ echo 201704270700
++ cut -c7-8
++ DD=27
++ export DD
++ echo 201704270700
++ cut -c9-10
++ HH=07
++ export HH
++ echo 201704270700
++ cut -c11-12
++ MN=00
++ export MN
++ echo 201704270715
++ cut -c1-4
++ YYYY1=2017
++ export YYYY1
++ echo 201704270715
++ cut -c5-6
++ MM1=04
++ export MM1
++ echo 201704270715
++ cut -c7-8
++ DD1=27
++ export DD1
++ echo 201704270715
++ cut -c9-10
++ HH1=07
++ export HH1
++ echo 201704270715
++ cut -c11-12
++ MN1=15
++ export MN1
++ FILE_DATE=2017-04-27_07:00:00
++ export FILE_DATE
++ true
++ [ 5 -eq 0 ]
++ false
++ echo 222
+222
++ true
++ [ 00 -eq 00 ]
++ WORK_DIR=/gpfs/home/sa24m/scratch/run3/run_witht_qprof/osse_out/real_fc
++ export WORK_DIR
++ echo 'WORK_DIR = /gpfs/home/sa24m/scratch/run3/run_witht_qprof/osse_out/real_fc'
+WORK_DIR = /gpfs/home/sa24m/scratch/run3/run_witht_qprof/osse_out/real_fc
++ [[ ! -d /gpfs/home/sa24m/scratch/run3/run_witht_qprof/osse_out/real_fc ]]
++ cd /gpfs/home/sa24m/scratch/run3/run_witht_qprof/osse_out/real_fc
++ /gpfs/home/sa24m/Research/wrf_dart_tutorials/run_with_tqprof/run_real_fc.ksh
++ 1> real_fc.log 2>& 1
++ RC=0
++ [[ 0 != 0 ]]
++ echo 3333
+3333
++ false
++ false
++ false
++ false
++ false
++ false
++ false
++ false
++ false
++ false
++ false
++ false
++ false
++ false
++ DATE=201704270715
++ export DATE
++ let CYCLE_NUMBER=5+1
++ [[ 201704270715 -le 201704271200 ]]
++ [ 201704270715 -ge 201704270600 ]
++ let RADAR_NUMBER=4+1
++ [ 6 -eq 0 ]
++ [ 6 -gt 0 ]
++ [ 5 -eq 0 ]
++ [ 5 -gt 0 ]
++ [ 201704270715 -lt 201704271200 ]
++ FCST_RANGE=0
++ export FCST_RANGE
++ FCST_MINUTE=15
++ export FCST_MINUTE
++ [ '' -eq 0 ]
++ [ 201704270715 -eq 201704271200 ]
++ [ 6 -eq 0 ]
++ /gpfs/research/chipilskigroup/stephen_asare/models/WRFDA/V4.5.2/var/build/da_advance_time.exe 201704270715 -15m -f ccyymmddhhnn
++ 2> /dev/null
++ PREV_DATE=201704270700
++ export PREV_DATE
++ echo 201704270700
++ awk '{print length}'
++ [ 12 -eq 10 ]
++ /gpfs/research/chipilskigroup/stephen_asare/models/WRFDA/V4.5.2/var/build/da_advance_time.exe 201704270715 0h15m -f ccyymmddhhnn
++ 2> /dev/null
++ FWD_DATE=201704270730
++ export FWD_DATE
++ echo '============'
+============
++ echo 201704270700
+201704270700
++ echo 201704270715
+201704270715
++ echo 201704270730
+201704270730
++ echo '============'
+============
++ echo 201704270715
++ cut -c1-4
++ YYYY=2017
++ export YYYY
++ echo 201704270715
++ cut -c5-6
++ MM=04
++ export MM
++ echo 201704270715
++ cut -c7-8
++ DD=27
++ export DD
++ echo 201704270715
++ cut -c9-10
++ HH=07
++ export HH
++ echo 201704270715
++ cut -c11-12
++ MN=15
++ export MN
++ echo 201704270730
++ cut -c1-4
++ YYYY1=2017
++ export YYYY1
++ echo 201704270730
++ cut -c5-6
++ MM1=04
++ export MM1
++ echo 201704270730
++ cut -c7-8
++ DD1=27
++ export DD1
++ echo 201704270730
++ cut -c9-10
++ HH1=07
++ export HH1
++ echo 201704270730
++ cut -c11-12
++ MN1=30
++ export MN1
++ FILE_DATE=2017-04-27_07:15:00
++ export FILE_DATE
++ true
++ [ 6 -eq 0 ]
++ false
++ echo 222
+222
++ true
++ [ 15 -eq 00 ]
++ echo 3333
+3333
++ false
++ false
++ false
++ false
++ false
++ false
++ false
++ false
++ false
++ false
++ false
++ false
++ false
++ false
++ DATE=201704270730
++ export DATE
++ let CYCLE_NUMBER=6+1
++ [[ 201704270730 -le 201704271200 ]]
++ [ 201704270730 -ge 201704270600 ]
++ let RADAR_NUMBER=5+1
++ [ 7 -eq 0 ]
++ [ 7 -gt 0 ]
++ [ 6 -eq 0 ]
++ [ 6 -gt 0 ]
++ [ 201704270730 -lt 201704271200 ]
++ FCST_RANGE=0
++ export FCST_RANGE
++ FCST_MINUTE=15
++ export FCST_MINUTE
++ [ '' -eq 0 ]
++ [ 201704270730 -eq 201704271200 ]
++ [ 7 -eq 0 ]
++ /gpfs/research/chipilskigroup/stephen_asare/models/WRFDA/V4.5.2/var/build/da_advance_time.exe 201704270730 -15m -f ccyymmddhhnn
++ 2> /dev/null
++ PREV_DATE=201704270715
++ export PREV_DATE
++ echo 201704270715
++ awk '{print length}'
++ [ 12 -eq 10 ]
++ /gpfs/research/chipilskigroup/stephen_asare/models/WRFDA/V4.5.2/var/build/da_advance_time.exe 201704270730 0h15m -f ccyymmddhhnn
++ 2> /dev/null
++ FWD_DATE=201704270745
++ export FWD_DATE
++ echo '============'
+============
++ echo 201704270715
+201704270715
++ echo 201704270730
+201704270730
++ echo 201704270745
+201704270745
++ echo '============'
+============
++ echo 201704270730
++ cut -c1-4
++ YYYY=2017
++ export YYYY
++ echo 201704270730
++ cut -c5-6
++ MM=04
++ export MM
++ echo 201704270730
++ cut -c7-8
++ DD=27
++ export DD
++ echo 201704270730
++ cut -c9-10
++ HH=07
++ export HH
++ echo 201704270730
++ cut -c11-12
++ MN=30
++ export MN
++ echo 201704270745
++ cut -c1-4
++ YYYY1=2017
++ export YYYY1
++ echo 201704270745
++ cut -c5-6
++ MM1=04
++ export MM1
++ echo 201704270745
++ cut -c7-8
++ DD1=27
++ export DD1
++ echo 201704270745
++ cut -c9-10
++ HH1=07
++ export HH1
++ echo 201704270745
++ cut -c11-12
++ MN1=45
++ export MN1
++ FILE_DATE=2017-04-27_07:30:00
++ export FILE_DATE
++ true
++ [ 7 -eq 0 ]
++ false
++ echo 222
+222
++ true
++ [ 30 -eq 00 ]
++ echo 3333
+3333
++ false
++ false
++ false
++ false
++ false
++ false
++ false
++ false
++ false
++ false
++ false
++ false
++ false
++ false
++ DATE=201704270745
++ export DATE
++ let CYCLE_NUMBER=7+1
++ [[ 201704270745 -le 201704271200 ]]
++ [ 201704270745 -ge 201704270600 ]
++ let RADAR_NUMBER=6+1
++ [ 8 -eq 0 ]
++ [ 8 -gt 0 ]
++ [ 7 -eq 0 ]
++ [ 7 -gt 0 ]
++ [ 201704270745 -lt 201704271200 ]
++ FCST_RANGE=0
++ export FCST_RANGE
++ FCST_MINUTE=15
++ export FCST_MINUTE
++ [ '' -eq 0 ]
++ [ 201704270745 -eq 201704271200 ]
++ [ 8 -eq 0 ]
++ /gpfs/research/chipilskigroup/stephen_asare/models/WRFDA/V4.5.2/var/build/da_advance_time.exe 201704270745 -15m -f ccyymmddhhnn
++ 2> /dev/null
++ PREV_DATE=201704270730
++ export PREV_DATE
++ echo 201704270730
++ awk '{print length}'
++ [ 12 -eq 10 ]
++ /gpfs/research/chipilskigroup/stephen_asare/models/WRFDA/V4.5.2/var/build/da_advance_time.exe 201704270745 0h15m -f ccyymmddhhnn
++ 2> /dev/null
++ FWD_DATE=201704270800
++ export FWD_DATE
++ echo '============'
+============
++ echo 201704270730
+201704270730
++ echo 201704270745
+201704270745
++ echo 201704270800
+201704270800
++ echo '============'
+============
++ echo 201704270745
++ cut -c1-4
++ YYYY=2017
++ export YYYY
++ echo 201704270745
++ cut -c5-6
++ MM=04
++ export MM
++ echo 201704270745
++ cut -c7-8
++ DD=27
++ export DD
++ echo 201704270745
++ cut -c9-10
++ HH=07
++ export HH
++ echo 201704270745
++ cut -c11-12
++ MN=45
++ export MN
++ echo 201704270800
++ cut -c1-4
++ YYYY1=2017
++ export YYYY1
++ echo 201704270800
++ cut -c5-6
++ MM1=04
++ export MM1
++ echo 201704270800
++ cut -c7-8
++ DD1=27
++ export DD1
++ echo 201704270800
++ cut -c9-10
++ HH1=08
++ export HH1
++ echo 201704270800
++ cut -c11-12
++ MN1=00
++ export MN1
++ FILE_DATE=2017-04-27_07:45:00
++ export FILE_DATE
++ true
++ [ 8 -eq 0 ]
++ false
++ echo 222
+222
++ true
++ [ 45 -eq 00 ]
++ echo 3333
+3333
++ false
++ false
++ false
++ false
++ false
++ false
++ false
++ false
++ false
++ false
++ false
++ false
++ false
++ false
++ DATE=201704270800
++ export DATE
++ let CYCLE_NUMBER=8+1
++ [[ 201704270800 -le 201704271200 ]]
++ [ 201704270800 -ge 201704270600 ]
++ let RADAR_NUMBER=7+1
++ [ 9 -eq 0 ]
++ [ 9 -gt 0 ]
++ [ 8 -eq 0 ]
++ [ 8 -gt 0 ]
++ [ 201704270800 -lt 201704271200 ]
++ FCST_RANGE=0
++ export FCST_RANGE
++ FCST_MINUTE=15
++ export FCST_MINUTE
++ [ '' -eq 0 ]
++ [ 201704270800 -eq 201704271200 ]
++ [ 9 -eq 0 ]
++ /gpfs/research/chipilskigroup/stephen_asare/models/WRFDA/V4.5.2/var/build/da_advance_time.exe 201704270800 -15m -f ccyymmddhhnn
++ 2> /dev/null
++ PREV_DATE=201704270745
++ export PREV_DATE
++ echo 201704270745
++ awk '{print length}'
++ [ 12 -eq 10 ]
++ /gpfs/research/chipilskigroup/stephen_asare/models/WRFDA/V4.5.2/var/build/da_advance_time.exe 201704270800 0h15m -f ccyymmddhhnn
++ 2> /dev/null
++ FWD_DATE=201704270815
++ export FWD_DATE
++ echo '============'
+============
++ echo 201704270745
+201704270745
++ echo 201704270800
+201704270800
++ echo 201704270815
+201704270815
++ echo '============'
+============
++ echo 201704270800
++ cut -c1-4
++ YYYY=2017
++ export YYYY
++ echo 201704270800
++ cut -c5-6
++ MM=04
++ export MM
++ echo 201704270800
++ cut -c7-8
++ DD=27
++ export DD
++ echo 201704270800
++ cut -c9-10
++ HH=08
++ export HH
++ echo 201704270800
++ cut -c11-12
++ MN=00
++ export MN
++ echo 201704270815
++ cut -c1-4
++ YYYY1=2017
++ export YYYY1
++ echo 201704270815
++ cut -c5-6
++ MM1=04
++ export MM1
++ echo 201704270815
++ cut -c7-8
++ DD1=27
++ export DD1
++ echo 201704270815
++ cut -c9-10
++ HH1=08
++ export HH1
++ echo 201704270815
++ cut -c11-12
++ MN1=15
++ export MN1
++ FILE_DATE=2017-04-27_08:00:00
++ export FILE_DATE
++ true
++ [ 9 -eq 0 ]
++ false
++ echo 222
+222
++ true
++ [ 00 -eq 00 ]
++ WORK_DIR=/gpfs/home/sa24m/scratch/run3/run_witht_qprof/osse_out/real_fc
++ export WORK_DIR
++ echo 'WORK_DIR = /gpfs/home/sa24m/scratch/run3/run_witht_qprof/osse_out/real_fc'
+WORK_DIR = /gpfs/home/sa24m/scratch/run3/run_witht_qprof/osse_out/real_fc
++ [[ ! -d /gpfs/home/sa24m/scratch/run3/run_witht_qprof/osse_out/real_fc ]]
++ cd /gpfs/home/sa24m/scratch/run3/run_witht_qprof/osse_out/real_fc
++ /gpfs/home/sa24m/Research/wrf_dart_tutorials/run_with_tqprof/run_real_fc.ksh
++ 1> real_fc.log 2>& 1
++ RC=0
++ [[ 0 != 0 ]]
++ echo 3333
+3333
++ false
++ false
++ false
++ false
++ false
++ false
++ false
++ false
++ false
++ false
++ false
++ false
++ false
++ false
++ DATE=201704270815
++ export DATE
++ let CYCLE_NUMBER=9+1
++ [[ 201704270815 -le 201704271200 ]]
++ [ 201704270815 -ge 201704270600 ]
++ let RADAR_NUMBER=8+1
++ [ 10 -eq 0 ]
++ [ 10 -gt 0 ]
++ [ 9 -eq 0 ]
++ [ 9 -gt 0 ]
++ [ 201704270815 -lt 201704271200 ]
++ FCST_RANGE=0
++ export FCST_RANGE
++ FCST_MINUTE=15
++ export FCST_MINUTE
++ [ '' -eq 0 ]
++ [ 201704270815 -eq 201704271200 ]
++ [ 10 -eq 0 ]
++ /gpfs/research/chipilskigroup/stephen_asare/models/WRFDA/V4.5.2/var/build/da_advance_time.exe 201704270815 -15m -f ccyymmddhhnn
++ 2> /dev/null
++ PREV_DATE=201704270800
++ export PREV_DATE
++ echo 201704270800
++ awk '{print length}'
++ [ 12 -eq 10 ]
++ /gpfs/research/chipilskigroup/stephen_asare/models/WRFDA/V4.5.2/var/build/da_advance_time.exe 201704270815 0h15m -f ccyymmddhhnn
++ 2> /dev/null
++ FWD_DATE=201704270830
++ export FWD_DATE
++ echo '============'
+============
++ echo 201704270800
+201704270800
++ echo 201704270815
+201704270815
++ echo 201704270830
+201704270830
++ echo '============'
+============
++ echo 201704270815
++ cut -c1-4
++ YYYY=2017
++ export YYYY
++ echo 201704270815
++ cut -c5-6
++ MM=04
++ export MM
++ echo 201704270815
++ cut -c7-8
++ DD=27
++ export DD
++ echo 201704270815
++ cut -c9-10
++ HH=08
++ export HH
++ echo 201704270815
++ cut -c11-12
++ MN=15
++ export MN
++ echo 201704270830
++ cut -c1-4
++ YYYY1=2017
++ export YYYY1
++ echo 201704270830
++ cut -c5-6
++ MM1=04
++ export MM1
++ echo 201704270830
++ cut -c7-8
++ DD1=27
++ export DD1
++ echo 201704270830
++ cut -c9-10
++ HH1=08
++ export HH1
++ echo 201704270830
++ cut -c11-12
++ MN1=30
++ export MN1
++ FILE_DATE=2017-04-27_08:15:00
++ export FILE_DATE
++ true
++ [ 10 -eq 0 ]
++ false
++ echo 222
+222
++ true
++ [ 15 -eq 00 ]
++ echo 3333
+3333
++ false
++ false
++ false
++ false
++ false
++ false
++ false
++ false
++ false
++ false
++ false
++ false
++ false
++ false
++ DATE=201704270830
++ export DATE
++ let CYCLE_NUMBER=10+1
++ [[ 201704270830 -le 201704271200 ]]
++ [ 201704270830 -ge 201704270600 ]
++ let RADAR_NUMBER=9+1
++ [ 11 -eq 0 ]
++ [ 11 -gt 0 ]
++ [ 10 -eq 0 ]
++ [ 10 -gt 0 ]
++ [ 201704270830 -lt 201704271200 ]
++ FCST_RANGE=0
++ export FCST_RANGE
++ FCST_MINUTE=15
++ export FCST_MINUTE
++ [ '' -eq 0 ]
++ [ 201704270830 -eq 201704271200 ]
++ [ 11 -eq 0 ]
++ /gpfs/research/chipilskigroup/stephen_asare/models/WRFDA/V4.5.2/var/build/da_advance_time.exe 201704270830 -15m -f ccyymmddhhnn
++ 2> /dev/null
++ PREV_DATE=201704270815
++ export PREV_DATE
++ echo 201704270815
++ awk '{print length}'
++ [ 12 -eq 10 ]
++ /gpfs/research/chipilskigroup/stephen_asare/models/WRFDA/V4.5.2/var/build/da_advance_time.exe 201704270830 0h15m -f ccyymmddhhnn
++ 2> /dev/null
++ FWD_DATE=201704270845
++ export FWD_DATE
++ echo '============'
+============
++ echo 201704270815
+201704270815
++ echo 201704270830
+201704270830
++ echo 201704270845
+201704270845
++ echo '============'
+============
++ echo 201704270830
++ cut -c1-4
++ YYYY=2017
++ export YYYY
++ echo 201704270830
++ cut -c5-6
++ MM=04
++ export MM
++ echo 201704270830
++ cut -c7-8
++ DD=27
++ export DD
++ echo 201704270830
++ cut -c9-10
++ HH=08
++ export HH
++ echo 201704270830
++ cut -c11-12
++ MN=30
++ export MN
++ echo 201704270845
++ cut -c1-4
++ YYYY1=2017
++ export YYYY1
++ echo 201704270845
++ cut -c5-6
++ MM1=04
++ export MM1
++ echo 201704270845
++ cut -c7-8
++ DD1=27
++ export DD1
++ echo 201704270845
++ cut -c9-10
++ HH1=08
++ export HH1
++ echo 201704270845
++ cut -c11-12
++ MN1=45
++ export MN1
++ FILE_DATE=2017-04-27_08:30:00
++ export FILE_DATE
++ true
++ [ 11 -eq 0 ]
++ false
++ echo 222
+222
++ true
++ [ 30 -eq 00 ]
++ echo 3333
+3333
++ false
++ false
++ false
++ false
++ false
++ false
++ false
++ false
++ false
++ false
++ false
++ false
++ false
++ false
++ DATE=201704270845
++ export DATE
++ let CYCLE_NUMBER=11+1
++ [[ 201704270845 -le 201704271200 ]]
++ [ 201704270845 -ge 201704270600 ]
++ let RADAR_NUMBER=10+1
++ [ 12 -eq 0 ]
++ [ 12 -gt 0 ]
++ [ 11 -eq 0 ]
++ [ 11 -gt 0 ]
++ [ 201704270845 -lt 201704271200 ]
++ FCST_RANGE=0
++ export FCST_RANGE
++ FCST_MINUTE=15
++ export FCST_MINUTE
++ [ '' -eq 0 ]
++ [ 201704270845 -eq 201704271200 ]
++ [ 12 -eq 0 ]
++ /gpfs/research/chipilskigroup/stephen_asare/models/WRFDA/V4.5.2/var/build/da_advance_time.exe 201704270845 -15m -f ccyymmddhhnn
++ 2> /dev/null
++ PREV_DATE=201704270830
++ export PREV_DATE
++ echo 201704270830
++ awk '{print length}'
++ [ 12 -eq 10 ]
++ /gpfs/research/chipilskigroup/stephen_asare/models/WRFDA/V4.5.2/var/build/da_advance_time.exe 201704270845 0h15m -f ccyymmddhhnn
++ 2> /dev/null
++ FWD_DATE=201704270900
++ export FWD_DATE
++ echo '============'
+============
++ echo 201704270830
+201704270830
++ echo 201704270845
+201704270845
++ echo 201704270900
+201704270900
++ echo '============'
+============
++ echo 201704270845
++ cut -c1-4
++ YYYY=2017
++ export YYYY
++ echo 201704270845
++ cut -c5-6
++ MM=04
++ export MM
++ echo 201704270845
++ cut -c7-8
++ DD=27
++ export DD
++ echo 201704270845
++ cut -c9-10
++ HH=08
++ export HH
++ echo 201704270845
++ cut -c11-12
++ MN=45
++ export MN
++ echo 201704270900
++ cut -c1-4
++ YYYY1=2017
++ export YYYY1
++ echo 201704270900
++ cut -c5-6
++ MM1=04
++ export MM1
++ echo 201704270900
++ cut -c7-8
++ DD1=27
++ export DD1
++ echo 201704270900
++ cut -c9-10
++ HH1=09
++ export HH1
++ echo 201704270900
++ cut -c11-12
++ MN1=00
++ export MN1
++ FILE_DATE=2017-04-27_08:45:00
++ export FILE_DATE
++ true
++ [ 12 -eq 0 ]
++ false
++ echo 222
+222
++ true
++ [ 45 -eq 00 ]
++ echo 3333
+3333
++ false
++ false
++ false
++ false
++ false
++ false
++ false
++ false
++ false
++ false
++ false
++ false
++ false
++ false
++ DATE=201704270900
++ export DATE
++ let CYCLE_NUMBER=12+1
++ [[ 201704270900 -le 201704271200 ]]
++ [ 201704270900 -ge 201704270600 ]
++ let RADAR_NUMBER=11+1
++ [ 13 -eq 0 ]
++ [ 13 -gt 0 ]
++ [ 12 -eq 0 ]
++ [ 12 -gt 0 ]
++ [ 201704270900 -lt 201704271200 ]
++ FCST_RANGE=0
++ export FCST_RANGE
++ FCST_MINUTE=15
++ export FCST_MINUTE
++ [ '' -eq 0 ]
++ [ 201704270900 -eq 201704271200 ]
++ [ 13 -eq 0 ]
++ /gpfs/research/chipilskigroup/stephen_asare/models/WRFDA/V4.5.2/var/build/da_advance_time.exe 201704270900 -15m -f ccyymmddhhnn
++ 2> /dev/null
++ PREV_DATE=201704270845
++ export PREV_DATE
++ echo 201704270845
++ awk '{print length}'
++ [ 12 -eq 10 ]
++ /gpfs/research/chipilskigroup/stephen_asare/models/WRFDA/V4.5.2/var/build/da_advance_time.exe 201704270900 0h15m -f ccyymmddhhnn
++ 2> /dev/null
++ FWD_DATE=201704270915
++ export FWD_DATE
++ echo '============'
+============
++ echo 201704270845
+201704270845
++ echo 201704270900
+201704270900
++ echo 201704270915
+201704270915
++ echo '============'
+============
++ echo 201704270900
++ cut -c1-4
++ YYYY=2017
++ export YYYY
++ echo 201704270900
++ cut -c5-6
++ MM=04
++ export MM
++ echo 201704270900
++ cut -c7-8
++ DD=27
++ export DD
++ echo 201704270900
++ cut -c9-10
++ HH=09
++ export HH
++ echo 201704270900
++ cut -c11-12
++ MN=00
++ export MN
++ echo 201704270915
++ cut -c1-4
++ YYYY1=2017
++ export YYYY1
++ echo 201704270915
++ cut -c5-6
++ MM1=04
++ export MM1
++ echo 201704270915
++ cut -c7-8
++ DD1=27
++ export DD1
++ echo 201704270915
++ cut -c9-10
++ HH1=09
++ export HH1
++ echo 201704270915
++ cut -c11-12
++ MN1=15
++ export MN1
++ FILE_DATE=2017-04-27_09:00:00
++ export FILE_DATE
++ true
++ [ 13 -eq 0 ]
++ false
++ echo 222
+222
++ true
++ [ 00 -eq 00 ]
++ WORK_DIR=/gpfs/home/sa24m/scratch/run3/run_witht_qprof/osse_out/real_fc
++ export WORK_DIR
++ echo 'WORK_DIR = /gpfs/home/sa24m/scratch/run3/run_witht_qprof/osse_out/real_fc'
+WORK_DIR = /gpfs/home/sa24m/scratch/run3/run_witht_qprof/osse_out/real_fc
++ [[ ! -d /gpfs/home/sa24m/scratch/run3/run_witht_qprof/osse_out/real_fc ]]
++ cd /gpfs/home/sa24m/scratch/run3/run_witht_qprof/osse_out/real_fc
++ /gpfs/home/sa24m/Research/wrf_dart_tutorials/run_with_tqprof/run_real_fc.ksh
++ 1> real_fc.log 2>& 1
++ RC=0
++ [[ 0 != 0 ]]
++ echo 3333
+3333
++ false
++ false
++ false
++ false
++ false
++ false
++ false
++ false
++ false
++ false
++ false
++ false
++ false
++ false
++ DATE=201704270915
++ export DATE
++ let CYCLE_NUMBER=13+1
++ [[ 201704270915 -le 201704271200 ]]
++ [ 201704270915 -ge 201704270600 ]
++ let RADAR_NUMBER=12+1
++ [ 14 -eq 0 ]
++ [ 14 -gt 0 ]
++ [ 13 -eq 0 ]
++ [ 13 -gt 0 ]
++ [ 201704270915 -lt 201704271200 ]
++ FCST_RANGE=0
++ export FCST_RANGE
++ FCST_MINUTE=15
++ export FCST_MINUTE
++ [ '' -eq 0 ]
++ [ 201704270915 -eq 201704271200 ]
++ [ 14 -eq 0 ]
++ /gpfs/research/chipilskigroup/stephen_asare/models/WRFDA/V4.5.2/var/build/da_advance_time.exe 201704270915 -15m -f ccyymmddhhnn
++ 2> /dev/null
++ PREV_DATE=201704270900
++ export PREV_DATE
++ echo 201704270900
++ awk '{print length}'
++ [ 12 -eq 10 ]
++ /gpfs/research/chipilskigroup/stephen_asare/models/WRFDA/V4.5.2/var/build/da_advance_time.exe 201704270915 0h15m -f ccyymmddhhnn
++ 2> /dev/null
++ FWD_DATE=201704270930
++ export FWD_DATE
++ echo '============'
+============
++ echo 201704270900
+201704270900
++ echo 201704270915
+201704270915
++ echo 201704270930
+201704270930
++ echo '============'
+============
++ echo 201704270915
++ cut -c1-4
++ YYYY=2017
++ export YYYY
++ echo 201704270915
++ cut -c5-6
++ MM=04
++ export MM
++ echo 201704270915
++ cut -c7-8
++ DD=27
++ export DD
++ echo 201704270915
++ cut -c9-10
++ HH=09
++ export HH
++ echo 201704270915
++ cut -c11-12
++ MN=15
++ export MN
++ echo 201704270930
++ cut -c1-4
++ YYYY1=2017
++ export YYYY1
++ echo 201704270930
++ cut -c5-6
++ MM1=04
++ export MM1
++ echo 201704270930
++ cut -c7-8
++ DD1=27
++ export DD1
++ echo 201704270930
++ cut -c9-10
++ HH1=09
++ export HH1
++ echo 201704270930
++ cut -c11-12
++ MN1=30
++ export MN1
++ FILE_DATE=2017-04-27_09:15:00
++ export FILE_DATE
++ true
++ [ 14 -eq 0 ]
++ false
++ echo 222
+222
++ true
++ [ 15 -eq 00 ]
++ echo 3333
+3333
++ false
++ false
++ false
++ false
++ false
++ false
++ false
++ false
++ false
++ false
++ false
++ false
++ false
++ false
++ DATE=201704270930
++ export DATE
++ let CYCLE_NUMBER=14+1
++ [[ 201704270930 -le 201704271200 ]]
++ [ 201704270930 -ge 201704270600 ]
++ let RADAR_NUMBER=13+1
++ [ 15 -eq 0 ]
++ [ 15 -gt 0 ]
++ [ 14 -eq 0 ]
++ [ 14 -gt 0 ]
++ [ 201704270930 -lt 201704271200 ]
++ FCST_RANGE=0
++ export FCST_RANGE
++ FCST_MINUTE=15
++ export FCST_MINUTE
++ [ '' -eq 0 ]
++ [ 201704270930 -eq 201704271200 ]
++ [ 15 -eq 0 ]
++ /gpfs/research/chipilskigroup/stephen_asare/models/WRFDA/V4.5.2/var/build/da_advance_time.exe 201704270930 -15m -f ccyymmddhhnn
++ 2> /dev/null
++ PREV_DATE=201704270915
++ export PREV_DATE
++ echo 201704270915
++ awk '{print length}'
++ [ 12 -eq 10 ]
++ /gpfs/research/chipilskigroup/stephen_asare/models/WRFDA/V4.5.2/var/build/da_advance_time.exe 201704270930 0h15m -f ccyymmddhhnn
++ 2> /dev/null
++ FWD_DATE=201704270945
++ export FWD_DATE
++ echo '============'
+============
++ echo 201704270915
+201704270915
++ echo 201704270930
+201704270930
++ echo 201704270945
+201704270945
++ echo '============'
+============
++ echo 201704270930
++ cut -c1-4
++ YYYY=2017
++ export YYYY
++ echo 201704270930
++ cut -c5-6
++ MM=04
++ export MM
++ echo 201704270930
++ cut -c7-8
++ DD=27
++ export DD
++ echo 201704270930
++ cut -c9-10
++ HH=09
++ export HH
++ echo 201704270930
++ cut -c11-12
++ MN=30
++ export MN
++ echo 201704270945
++ cut -c1-4
++ YYYY1=2017
++ export YYYY1
++ echo 201704270945
++ cut -c5-6
++ MM1=04
++ export MM1
++ echo 201704270945
++ cut -c7-8
++ DD1=27
++ export DD1
++ echo 201704270945
++ cut -c9-10
++ HH1=09
++ export HH1
++ echo 201704270945
++ cut -c11-12
++ MN1=45
++ export MN1
++ FILE_DATE=2017-04-27_09:30:00
++ export FILE_DATE
++ true
++ [ 15 -eq 0 ]
++ false
++ echo 222
+222
++ true
++ [ 30 -eq 00 ]
++ echo 3333
+3333
++ false
++ false
++ false
++ false
++ false
++ false
++ false
++ false
++ false
++ false
++ false
++ false
++ false
++ false
++ DATE=201704270945
++ export DATE
++ let CYCLE_NUMBER=15+1
++ [[ 201704270945 -le 201704271200 ]]
++ [ 201704270945 -ge 201704270600 ]
++ let RADAR_NUMBER=14+1
++ [ 16 -eq 0 ]
++ [ 16 -gt 0 ]
++ [ 15 -eq 0 ]
++ [ 15 -gt 0 ]
++ [ 201704270945 -lt 201704271200 ]
++ FCST_RANGE=0
++ export FCST_RANGE
++ FCST_MINUTE=15
++ export FCST_MINUTE
++ [ '' -eq 0 ]
++ [ 201704270945 -eq 201704271200 ]
++ [ 16 -eq 0 ]
++ /gpfs/research/chipilskigroup/stephen_asare/models/WRFDA/V4.5.2/var/build/da_advance_time.exe 201704270945 -15m -f ccyymmddhhnn
++ 2> /dev/null
++ PREV_DATE=201704270930
++ export PREV_DATE
++ echo 201704270930
++ awk '{print length}'
++ [ 12 -eq 10 ]
++ /gpfs/research/chipilskigroup/stephen_asare/models/WRFDA/V4.5.2/var/build/da_advance_time.exe 201704270945 0h15m -f ccyymmddhhnn
++ 2> /dev/null
++ FWD_DATE=201704271000
++ export FWD_DATE
++ echo '============'
+============
++ echo 201704270930
+201704270930
++ echo 201704270945
+201704270945
++ echo 201704271000
+201704271000
++ echo '============'
+============
++ echo 201704270945
++ cut -c1-4
++ YYYY=2017
++ export YYYY
++ echo 201704270945
++ cut -c5-6
++ MM=04
++ export MM
++ echo 201704270945
++ cut -c7-8
++ DD=27
++ export DD
++ echo 201704270945
++ cut -c9-10
++ HH=09
++ export HH
++ echo 201704270945
++ cut -c11-12
++ MN=45
++ export MN
++ echo 201704271000
++ cut -c1-4
++ YYYY1=2017
++ export YYYY1
++ echo 201704271000
++ cut -c5-6
++ MM1=04
++ export MM1
++ echo 201704271000
++ cut -c7-8
++ DD1=27
++ export DD1
++ echo 201704271000
++ cut -c9-10
++ HH1=10
++ export HH1
++ echo 201704271000
++ cut -c11-12
++ MN1=00
++ export MN1
++ FILE_DATE=2017-04-27_09:45:00
++ export FILE_DATE
++ true
++ [ 16 -eq 0 ]
++ false
++ echo 222
+222
++ true
++ [ 45 -eq 00 ]
++ echo 3333
+3333
++ false
++ false
++ false
++ false
++ false
++ false
++ false
++ false
++ false
++ false
++ false
++ false
++ false
++ false
++ DATE=201704271000
++ export DATE
++ let CYCLE_NUMBER=16+1
++ [[ 201704271000 -le 201704271200 ]]
++ [ 201704271000 -ge 201704270600 ]
++ let RADAR_NUMBER=15+1
++ [ 17 -eq 0 ]
++ [ 17 -gt 0 ]
++ [ 16 -eq 0 ]
++ [ 16 -gt 0 ]
++ [ 201704271000 -lt 201704271200 ]
++ FCST_RANGE=0
++ export FCST_RANGE
++ FCST_MINUTE=15
++ export FCST_MINUTE
++ [ '' -eq 0 ]
++ [ 201704271000 -eq 201704271200 ]
++ [ 17 -eq 0 ]
++ /gpfs/research/chipilskigroup/stephen_asare/models/WRFDA/V4.5.2/var/build/da_advance_time.exe 201704271000 -15m -f ccyymmddhhnn
++ 2> /dev/null
++ PREV_DATE=201704270945
++ export PREV_DATE
++ echo 201704270945
++ awk '{print length}'
++ [ 12 -eq 10 ]
++ /gpfs/research/chipilskigroup/stephen_asare/models/WRFDA/V4.5.2/var/build/da_advance_time.exe 201704271000 0h15m -f ccyymmddhhnn
++ 2> /dev/null
++ FWD_DATE=201704271015
++ export FWD_DATE
++ echo '============'
+============
++ echo 201704270945
+201704270945
++ echo 201704271000
+201704271000
++ echo 201704271015
+201704271015
++ echo '============'
+============
++ echo 201704271000
++ cut -c1-4
++ YYYY=2017
++ export YYYY
++ echo 201704271000
++ cut -c5-6
++ MM=04
++ export MM
++ echo 201704271000
++ cut -c7-8
++ DD=27
++ export DD
++ echo 201704271000
++ cut -c9-10
++ HH=10
++ export HH
++ echo 201704271000
++ cut -c11-12
++ MN=00
++ export MN
++ echo 201704271015
++ cut -c1-4
++ YYYY1=2017
++ export YYYY1
++ echo 201704271015
++ cut -c5-6
++ MM1=04
++ export MM1
++ echo 201704271015
++ cut -c7-8
++ DD1=27
++ export DD1
++ echo 201704271015
++ cut -c9-10
++ HH1=10
++ export HH1
++ echo 201704271015
++ cut -c11-12
++ MN1=15
++ export MN1
++ FILE_DATE=2017-04-27_10:00:00
++ export FILE_DATE
++ true
++ [ 17 -eq 0 ]
++ false
++ echo 222
+222
++ true
++ [ 00 -eq 00 ]
++ WORK_DIR=/gpfs/home/sa24m/scratch/run3/run_witht_qprof/osse_out/real_fc
++ export WORK_DIR
++ echo 'WORK_DIR = /gpfs/home/sa24m/scratch/run3/run_witht_qprof/osse_out/real_fc'
+WORK_DIR = /gpfs/home/sa24m/scratch/run3/run_witht_qprof/osse_out/real_fc
++ [[ ! -d /gpfs/home/sa24m/scratch/run3/run_witht_qprof/osse_out/real_fc ]]
++ cd /gpfs/home/sa24m/scratch/run3/run_witht_qprof/osse_out/real_fc
++ /gpfs/home/sa24m/Research/wrf_dart_tutorials/run_with_tqprof/run_real_fc.ksh
++ 1> real_fc.log 2>& 1
++ RC=0
++ [[ 0 != 0 ]]
++ echo 3333
+3333
++ false
++ false
++ false
++ false
++ false
++ false
++ false
++ false
++ false
++ false
++ false
++ false
++ false
++ false
++ DATE=201704271015
++ export DATE
++ let CYCLE_NUMBER=17+1
++ [[ 201704271015 -le 201704271200 ]]
++ [ 201704271015 -ge 201704270600 ]
++ let RADAR_NUMBER=16+1
++ [ 18 -eq 0 ]
++ [ 18 -gt 0 ]
++ [ 17 -eq 0 ]
++ [ 17 -gt 0 ]
++ [ 201704271015 -lt 201704271200 ]
++ FCST_RANGE=0
++ export FCST_RANGE
++ FCST_MINUTE=15
++ export FCST_MINUTE
++ [ '' -eq 0 ]
++ [ 201704271015 -eq 201704271200 ]
++ [ 18 -eq 0 ]
++ /gpfs/research/chipilskigroup/stephen_asare/models/WRFDA/V4.5.2/var/build/da_advance_time.exe 201704271015 -15m -f ccyymmddhhnn
++ 2> /dev/null
++ PREV_DATE=201704271000
++ export PREV_DATE
++ echo 201704271000
++ awk '{print length}'
++ [ 12 -eq 10 ]
++ /gpfs/research/chipilskigroup/stephen_asare/models/WRFDA/V4.5.2/var/build/da_advance_time.exe 201704271015 0h15m -f ccyymmddhhnn
++ 2> /dev/null
++ FWD_DATE=201704271030
++ export FWD_DATE
++ echo '============'
+============
++ echo 201704271000
+201704271000
++ echo 201704271015
+201704271015
++ echo 201704271030
+201704271030
++ echo '============'
+============
++ echo 201704271015
++ cut -c1-4
++ YYYY=2017
++ export YYYY
++ echo 201704271015
++ cut -c5-6
++ MM=04
++ export MM
++ echo 201704271015
++ cut -c7-8
++ DD=27
++ export DD
++ echo 201704271015
++ cut -c9-10
++ HH=10
++ export HH
++ echo 201704271015
++ cut -c11-12
++ MN=15
++ export MN
++ echo 201704271030
++ cut -c1-4
++ YYYY1=2017
++ export YYYY1
++ echo 201704271030
++ cut -c5-6
++ MM1=04
++ export MM1
++ echo 201704271030
++ cut -c7-8
++ DD1=27
++ export DD1
++ echo 201704271030
++ cut -c9-10
++ HH1=10
++ export HH1
++ echo 201704271030
++ cut -c11-12
++ MN1=30
++ export MN1
++ FILE_DATE=2017-04-27_10:15:00
++ export FILE_DATE
++ true
++ [ 18 -eq 0 ]
++ false
++ echo 222
+222
++ true
++ [ 15 -eq 00 ]
++ echo 3333
+3333
++ false
++ false
++ false
++ false
++ false
++ false
++ false
++ false
++ false
++ false
++ false
++ false
++ false
++ false
++ DATE=201704271030
++ export DATE
++ let CYCLE_NUMBER=18+1
++ [[ 201704271030 -le 201704271200 ]]
++ [ 201704271030 -ge 201704270600 ]
++ let RADAR_NUMBER=17+1
++ [ 19 -eq 0 ]
++ [ 19 -gt 0 ]
++ [ 18 -eq 0 ]
++ [ 18 -gt 0 ]
++ [ 201704271030 -lt 201704271200 ]
++ FCST_RANGE=0
++ export FCST_RANGE
++ FCST_MINUTE=15
++ export FCST_MINUTE
++ [ '' -eq 0 ]
++ [ 201704271030 -eq 201704271200 ]
++ [ 19 -eq 0 ]
++ /gpfs/research/chipilskigroup/stephen_asare/models/WRFDA/V4.5.2/var/build/da_advance_time.exe 201704271030 -15m -f ccyymmddhhnn
++ 2> /dev/null
++ PREV_DATE=201704271015
++ export PREV_DATE
++ echo 201704271015
++ awk '{print length}'
++ [ 12 -eq 10 ]
++ /gpfs/research/chipilskigroup/stephen_asare/models/WRFDA/V4.5.2/var/build/da_advance_time.exe 201704271030 0h15m -f ccyymmddhhnn
++ 2> /dev/null
++ FWD_DATE=201704271045
++ export FWD_DATE
++ echo '============'
+============
++ echo 201704271015
+201704271015
++ echo 201704271030
+201704271030
++ echo 201704271045
+201704271045
++ echo '============'
+============
++ echo 201704271030
++ cut -c1-4
++ YYYY=2017
++ export YYYY
++ echo 201704271030
++ cut -c5-6
++ MM=04
++ export MM
++ echo 201704271030
++ cut -c7-8
++ DD=27
++ export DD
++ echo 201704271030
++ cut -c9-10
++ HH=10
++ export HH
++ echo 201704271030
++ cut -c11-12
++ MN=30
++ export MN
++ echo 201704271045
++ cut -c1-4
++ YYYY1=2017
++ export YYYY1
++ echo 201704271045
++ cut -c5-6
++ MM1=04
++ export MM1
++ echo 201704271045
++ cut -c7-8
++ DD1=27
++ export DD1
++ echo 201704271045
++ cut -c9-10
++ HH1=10
++ export HH1
++ echo 201704271045
++ cut -c11-12
++ MN1=45
++ export MN1
++ FILE_DATE=2017-04-27_10:30:00
++ export FILE_DATE
++ true
++ [ 19 -eq 0 ]
++ false
++ echo 222
+222
++ true
++ [ 30 -eq 00 ]
++ echo 3333
+3333
++ false
++ false
++ false
++ false
++ false
++ false
++ false
++ false
++ false
++ false
++ false
++ false
++ false
++ false
++ DATE=201704271045
++ export DATE
++ let CYCLE_NUMBER=19+1
++ [[ 201704271045 -le 201704271200 ]]
++ [ 201704271045 -ge 201704270600 ]
++ let RADAR_NUMBER=18+1
++ [ 20 -eq 0 ]
++ [ 20 -gt 0 ]
++ [ 19 -eq 0 ]
++ [ 19 -gt 0 ]
++ [ 201704271045 -lt 201704271200 ]
++ FCST_RANGE=0
++ export FCST_RANGE
++ FCST_MINUTE=15
++ export FCST_MINUTE
++ [ '' -eq 0 ]
++ [ 201704271045 -eq 201704271200 ]
++ [ 20 -eq 0 ]
++ /gpfs/research/chipilskigroup/stephen_asare/models/WRFDA/V4.5.2/var/build/da_advance_time.exe 201704271045 -15m -f ccyymmddhhnn
++ 2> /dev/null
++ PREV_DATE=201704271030
++ export PREV_DATE
++ echo 201704271030
++ awk '{print length}'
++ [ 12 -eq 10 ]
++ /gpfs/research/chipilskigroup/stephen_asare/models/WRFDA/V4.5.2/var/build/da_advance_time.exe 201704271045 0h15m -f ccyymmddhhnn
++ 2> /dev/null
++ FWD_DATE=201704271100
++ export FWD_DATE
++ echo '============'
+============
++ echo 201704271030
+201704271030
++ echo 201704271045
+201704271045
++ echo 201704271100
+201704271100
++ echo '============'
+============
++ echo 201704271045
++ cut -c1-4
++ YYYY=2017
++ export YYYY
++ echo 201704271045
++ cut -c5-6
++ MM=04
++ export MM
++ echo 201704271045
++ cut -c7-8
++ DD=27
++ export DD
++ echo 201704271045
++ cut -c9-10
++ HH=10
++ export HH
++ echo 201704271045
++ cut -c11-12
++ MN=45
++ export MN
++ echo 201704271100
++ cut -c1-4
++ YYYY1=2017
++ export YYYY1
++ echo 201704271100
++ cut -c5-6
++ MM1=04
++ export MM1
++ echo 201704271100
++ cut -c7-8
++ DD1=27
++ export DD1
++ echo 201704271100
++ cut -c9-10
++ HH1=11
++ export HH1
++ echo 201704271100
++ cut -c11-12
++ MN1=00
++ export MN1
++ FILE_DATE=2017-04-27_10:45:00
++ export FILE_DATE
++ true
++ [ 20 -eq 0 ]
++ false
++ echo 222
+222
++ true
++ [ 45 -eq 00 ]
++ echo 3333
+3333
++ false
++ false
++ false
++ false
++ false
++ false
++ false
++ false
++ false
++ false
++ false
++ false
++ false
++ false
++ DATE=201704271100
++ export DATE
++ let CYCLE_NUMBER=20+1
++ [[ 201704271100 -le 201704271200 ]]
++ [ 201704271100 -ge 201704270600 ]
++ let RADAR_NUMBER=19+1
++ [ 21 -eq 0 ]
++ [ 21 -gt 0 ]
++ [ 20 -eq 0 ]
++ [ 20 -gt 0 ]
++ [ 201704271100 -lt 201704271200 ]
++ FCST_RANGE=0
++ export FCST_RANGE
++ FCST_MINUTE=15
++ export FCST_MINUTE
++ [ '' -eq 0 ]
++ [ 201704271100 -eq 201704271200 ]
++ [ 21 -eq 0 ]
++ /gpfs/research/chipilskigroup/stephen_asare/models/WRFDA/V4.5.2/var/build/da_advance_time.exe 201704271100 -15m -f ccyymmddhhnn
++ 2> /dev/null
++ PREV_DATE=201704271045
++ export PREV_DATE
++ echo 201704271045
++ awk '{print length}'
++ [ 12 -eq 10 ]
++ /gpfs/research/chipilskigroup/stephen_asare/models/WRFDA/V4.5.2/var/build/da_advance_time.exe 201704271100 0h15m -f ccyymmddhhnn
++ 2> /dev/null
++ FWD_DATE=201704271115
++ export FWD_DATE
++ echo '============'
+============
++ echo 201704271045
+201704271045
++ echo 201704271100
+201704271100
++ echo 201704271115
+201704271115
++ echo '============'
+============
++ echo 201704271100
++ cut -c1-4
++ YYYY=2017
++ export YYYY
++ echo 201704271100
++ cut -c5-6
++ MM=04
++ export MM
++ echo 201704271100
++ cut -c7-8
++ DD=27
++ export DD
++ echo 201704271100
++ cut -c9-10
++ HH=11
++ export HH
++ echo 201704271100
++ cut -c11-12
++ MN=00
++ export MN
++ echo 201704271115
++ cut -c1-4
++ YYYY1=2017
++ export YYYY1
++ echo 201704271115
++ cut -c5-6
++ MM1=04
++ export MM1
++ echo 201704271115
++ cut -c7-8
++ DD1=27
++ export DD1
++ echo 201704271115
++ cut -c9-10
++ HH1=11
++ export HH1
++ echo 201704271115
++ cut -c11-12
++ MN1=15
++ export MN1
++ FILE_DATE=2017-04-27_11:00:00
++ export FILE_DATE
++ true
++ [ 21 -eq 0 ]
++ false
++ echo 222
+222
++ true
++ [ 00 -eq 00 ]
++ WORK_DIR=/gpfs/home/sa24m/scratch/run3/run_witht_qprof/osse_out/real_fc
++ export WORK_DIR
++ echo 'WORK_DIR = /gpfs/home/sa24m/scratch/run3/run_witht_qprof/osse_out/real_fc'
+WORK_DIR = /gpfs/home/sa24m/scratch/run3/run_witht_qprof/osse_out/real_fc
++ [[ ! -d /gpfs/home/sa24m/scratch/run3/run_witht_qprof/osse_out/real_fc ]]
++ cd /gpfs/home/sa24m/scratch/run3/run_witht_qprof/osse_out/real_fc
++ /gpfs/home/sa24m/Research/wrf_dart_tutorials/run_with_tqprof/run_real_fc.ksh
++ 1> real_fc.log 2>& 1
++ RC=0
++ [[ 0 != 0 ]]
++ echo 3333
+3333
++ false
++ false
++ false
++ false
++ false
++ false
++ false
++ false
++ false
++ false
++ false
++ false
++ false
++ false
++ DATE=201704271115
++ export DATE
++ let CYCLE_NUMBER=21+1
++ [[ 201704271115 -le 201704271200 ]]
++ [ 201704271115 -ge 201704270600 ]
++ let RADAR_NUMBER=20+1
++ [ 22 -eq 0 ]
++ [ 22 -gt 0 ]
++ [ 21 -eq 0 ]
++ [ 21 -gt 0 ]
++ [ 201704271115 -lt 201704271200 ]
++ FCST_RANGE=0
++ export FCST_RANGE
++ FCST_MINUTE=15
++ export FCST_MINUTE
++ [ '' -eq 0 ]
++ [ 201704271115 -eq 201704271200 ]
++ [ 22 -eq 0 ]
++ /gpfs/research/chipilskigroup/stephen_asare/models/WRFDA/V4.5.2/var/build/da_advance_time.exe 201704271115 -15m -f ccyymmddhhnn
++ 2> /dev/null
++ PREV_DATE=201704271100
++ export PREV_DATE
++ echo 201704271100
++ awk '{print length}'
++ [ 12 -eq 10 ]
++ /gpfs/research/chipilskigroup/stephen_asare/models/WRFDA/V4.5.2/var/build/da_advance_time.exe 201704271115 0h15m -f ccyymmddhhnn
++ 2> /dev/null
++ FWD_DATE=201704271130
++ export FWD_DATE
++ echo '============'
+============
++ echo 201704271100
+201704271100
++ echo 201704271115
+201704271115
++ echo 201704271130
+201704271130
++ echo '============'
+============
++ echo 201704271115
++ cut -c1-4
++ YYYY=2017
++ export YYYY
++ echo 201704271115
++ cut -c5-6
++ MM=04
++ export MM
++ echo 201704271115
++ cut -c7-8
++ DD=27
++ export DD
++ echo 201704271115
++ cut -c9-10
++ HH=11
++ export HH
++ echo 201704271115
++ cut -c11-12
++ MN=15
++ export MN
++ echo 201704271130
++ cut -c1-4
++ YYYY1=2017
++ export YYYY1
++ echo 201704271130
++ cut -c5-6
++ MM1=04
++ export MM1
++ echo 201704271130
++ cut -c7-8
++ DD1=27
++ export DD1
++ echo 201704271130
++ cut -c9-10
++ HH1=11
++ export HH1
++ echo 201704271130
++ cut -c11-12
++ MN1=30
++ export MN1
++ FILE_DATE=2017-04-27_11:15:00
++ export FILE_DATE
++ true
++ [ 22 -eq 0 ]
++ false
++ echo 222
+222
++ true
++ [ 15 -eq 00 ]
++ echo 3333
+3333
++ false
++ false
++ false
++ false
++ false
++ false
++ false
++ false
++ false
++ false
++ false
++ false
++ false
++ false
++ DATE=201704271130
++ export DATE
++ let CYCLE_NUMBER=22+1
++ [[ 201704271130 -le 201704271200 ]]
++ [ 201704271130 -ge 201704270600 ]
++ let RADAR_NUMBER=21+1
++ [ 23 -eq 0 ]
++ [ 23 -gt 0 ]
++ [ 22 -eq 0 ]
++ [ 22 -gt 0 ]
++ [ 201704271130 -lt 201704271200 ]
++ FCST_RANGE=0
++ export FCST_RANGE
++ FCST_MINUTE=15
++ export FCST_MINUTE
++ [ '' -eq 0 ]
++ [ 201704271130 -eq 201704271200 ]
++ [ 23 -eq 0 ]
++ /gpfs/research/chipilskigroup/stephen_asare/models/WRFDA/V4.5.2/var/build/da_advance_time.exe 201704271130 -15m -f ccyymmddhhnn
++ 2> /dev/null
++ PREV_DATE=201704271115
++ export PREV_DATE
++ echo 201704271115
++ awk '{print length}'
++ [ 12 -eq 10 ]
++ /gpfs/research/chipilskigroup/stephen_asare/models/WRFDA/V4.5.2/var/build/da_advance_time.exe 201704271130 0h15m -f ccyymmddhhnn
++ 2> /dev/null
++ FWD_DATE=201704271145
++ export FWD_DATE
++ echo '============'
+============
++ echo 201704271115
+201704271115
++ echo 201704271130
+201704271130
++ echo 201704271145
+201704271145
++ echo '============'
+============
++ echo 201704271130
++ cut -c1-4
++ YYYY=2017
++ export YYYY
++ echo 201704271130
++ cut -c5-6
++ MM=04
++ export MM
++ echo 201704271130
++ cut -c7-8
++ DD=27
++ export DD
++ echo 201704271130
++ cut -c9-10
++ HH=11
++ export HH
++ echo 201704271130
++ cut -c11-12
++ MN=30
++ export MN
++ echo 201704271145
++ cut -c1-4
++ YYYY1=2017
++ export YYYY1
++ echo 201704271145
++ cut -c5-6
++ MM1=04
++ export MM1
++ echo 201704271145
++ cut -c7-8
++ DD1=27
++ export DD1
++ echo 201704271145
++ cut -c9-10
++ HH1=11
++ export HH1
++ echo 201704271145
++ cut -c11-12
++ MN1=45
++ export MN1
++ FILE_DATE=2017-04-27_11:30:00
++ export FILE_DATE
++ true
++ [ 23 -eq 0 ]
++ false
++ echo 222
+222
++ true
++ [ 30 -eq 00 ]
++ echo 3333
+3333
++ false
++ false
++ false
++ false
++ false
++ false
++ false
++ false
++ false
++ false
++ false
++ false
++ false
++ false
++ DATE=201704271145
++ export DATE
++ let CYCLE_NUMBER=23+1
++ [[ 201704271145 -le 201704271200 ]]
++ [ 201704271145 -ge 201704270600 ]
++ let RADAR_NUMBER=22+1
++ [ 24 -eq 0 ]
++ [ 24 -gt 0 ]
++ [ 23 -eq 0 ]
++ [ 23 -gt 0 ]
++ [ 201704271145 -lt 201704271200 ]
++ FCST_RANGE=0
++ export FCST_RANGE
++ FCST_MINUTE=15
++ export FCST_MINUTE
++ [ '' -eq 0 ]
++ [ 201704271145 -eq 201704271200 ]
++ [ 24 -eq 0 ]
++ /gpfs/research/chipilskigroup/stephen_asare/models/WRFDA/V4.5.2/var/build/da_advance_time.exe 201704271145 -15m -f ccyymmddhhnn
++ 2> /dev/null
++ PREV_DATE=201704271130
++ export PREV_DATE
++ echo 201704271130
++ awk '{print length}'
++ [ 12 -eq 10 ]
++ /gpfs/research/chipilskigroup/stephen_asare/models/WRFDA/V4.5.2/var/build/da_advance_time.exe 201704271145 0h15m -f ccyymmddhhnn
++ 2> /dev/null
++ FWD_DATE=201704271200
++ export FWD_DATE
++ echo '============'
+============
++ echo 201704271130
+201704271130
++ echo 201704271145
+201704271145
++ echo 201704271200
+201704271200
++ echo '============'
+============
++ echo 201704271145
++ cut -c1-4
++ YYYY=2017
++ export YYYY
++ echo 201704271145
++ cut -c5-6
++ MM=04
++ export MM
++ echo 201704271145
++ cut -c7-8
++ DD=27
++ export DD
++ echo 201704271145
++ cut -c9-10
++ HH=11
++ export HH
++ echo 201704271145
++ cut -c11-12
++ MN=45
++ export MN
++ echo 201704271200
++ cut -c1-4
++ YYYY1=2017
++ export YYYY1
++ echo 201704271200
++ cut -c5-6
++ MM1=04
++ export MM1
++ echo 201704271200
++ cut -c7-8
++ DD1=27
++ export DD1
++ echo 201704271200
++ cut -c9-10
++ HH1=12
++ export HH1
++ echo 201704271200
++ cut -c11-12
++ MN1=00
++ export MN1
++ FILE_DATE=2017-04-27_11:45:00
++ export FILE_DATE
++ true
++ [ 24 -eq 0 ]
++ false
++ echo 222
+222
++ true
++ [ 45 -eq 00 ]
++ echo 3333
+3333
++ false
++ false
++ false
++ false
++ false
++ false
++ false
++ false
++ false
++ false
++ false
++ false
++ false
++ false
++ DATE=201704271200
++ export DATE
++ let CYCLE_NUMBER=24+1
++ [[ 201704271200 -le 201704271200 ]]
++ [ 201704271200 -ge 201704270600 ]
++ let RADAR_NUMBER=23+1
++ [ 25 -eq 0 ]
++ [ 25 -gt 0 ]
++ [ 24 -eq 0 ]
++ [ 24 -gt 0 ]
++ [ 201704271200 -lt 201704271200 ]
++ [ '' -eq 0 ]
++ [ 201704271200 -eq 201704271200 ]
++ FCST_RANGE=0
++ export FCST_RANGE
++ FCST_MINUTE=15
++ export FCST_MINUTE
++ [ 25 -eq 0 ]
++ /gpfs/research/chipilskigroup/stephen_asare/models/WRFDA/V4.5.2/var/build/da_advance_time.exe 201704271200 -15m -f ccyymmddhhnn
++ 2> /dev/null
++ PREV_DATE=201704271145
++ export PREV_DATE
++ echo 201704271145
++ awk '{print length}'
++ [ 12 -eq 10 ]
++ /gpfs/research/chipilskigroup/stephen_asare/models/WRFDA/V4.5.2/var/build/da_advance_time.exe 201704271200 0h15m -f ccyymmddhhnn
++ 2> /dev/null
++ FWD_DATE=201704271215
++ export FWD_DATE
++ echo '============'
+============
++ echo 201704271145
+201704271145
++ echo 201704271200
+201704271200
++ echo 201704271215
+201704271215
++ echo '============'
+============
++ echo 201704271200
++ cut -c1-4
++ YYYY=2017
++ export YYYY
++ echo 201704271200
++ cut -c5-6
++ MM=04
++ export MM
++ echo 201704271200
++ cut -c7-8
++ DD=27
++ export DD
++ echo 201704271200
++ cut -c9-10
++ HH=12
++ export HH
++ echo 201704271200
++ cut -c11-12
++ MN=00
++ export MN
++ echo 201704271215
++ cut -c1-4
++ YYYY1=2017
++ export YYYY1
++ echo 201704271215
++ cut -c5-6
++ MM1=04
++ export MM1
++ echo 201704271215
++ cut -c7-8
++ DD1=27
++ export DD1
++ echo 201704271215
++ cut -c9-10
++ HH1=12
++ export HH1
++ echo 201704271215
++ cut -c11-12
++ MN1=15
++ export MN1
++ FILE_DATE=2017-04-27_12:00:00
++ export FILE_DATE
++ true
++ [ 25 -eq 0 ]
++ false
++ echo 222
+222
++ true
++ [ 00 -eq 00 ]
++ WORK_DIR=/gpfs/home/sa24m/scratch/run3/run_witht_qprof/osse_out/real_fc
++ export WORK_DIR
++ echo 'WORK_DIR = /gpfs/home/sa24m/scratch/run3/run_witht_qprof/osse_out/real_fc'
+WORK_DIR = /gpfs/home/sa24m/scratch/run3/run_witht_qprof/osse_out/real_fc
++ [[ ! -d /gpfs/home/sa24m/scratch/run3/run_witht_qprof/osse_out/real_fc ]]
++ cd /gpfs/home/sa24m/scratch/run3/run_witht_qprof/osse_out/real_fc
++ /gpfs/home/sa24m/Research/wrf_dart_tutorials/run_with_tqprof/run_real_fc.ksh
++ 1> real_fc.log 2>& 1
++ RC=0
++ [[ 0 != 0 ]]
++ echo 3333
+3333
++ false
++ false
++ false
++ false
++ false
++ false
++ false
++ false
++ false
++ false
++ false
++ false
++ false
++ false
++ DATE=201704271215
++ export DATE
++ let CYCLE_NUMBER=25+1
++ [[ 201704271215 -le 201704271200 ]]
++ date
++ echo Wed Aug 27 13:33:21 EDT 2025 Finished
+Wed Aug 27 13:33:21 EDT 2025 Finished
++ [[ 0 == 0 ]]
++ touch SUCCESS
++ exit 0
