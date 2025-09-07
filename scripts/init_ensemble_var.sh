@@ -56,7 +56,7 @@ while [ "$n" -le "$NUM_ENS" ]; do
 
     ${LINK} "${RUN_DIR}/WRF_RUN/"* "${RUN_DIR}/advance_temp${n}/."
     ${LINK} "${RUN_DIR}/input.nml" "${RUN_DIR}/advance_temp${n}/input.nml"
-
+    echo "Copying wrfinput_d01_${gdate[0]}_${gdate[1]}_mean from ${OUTPUT_DIR}/${initial_date} to advance_temp${n}/wrfvar_output.nc"
     ${COPY} "${OUTPUT_DIR}/${initial_date}/wrfinput_d01_${gdate[0]}_${gdate[1]}_mean" \
               "${RUN_DIR}/advance_temp${n}/wrfvar_output.nc"
     sleep 3
@@ -75,12 +75,14 @@ EOF
 #SBATCH --job-name=first_advance_${n}
 #SBATCH --output=first_advance_${n}.out
 #SBATCH --error=first_advance_${n}.err
-#SBATCH --account=chipilskigroup_q
-#SBATCH -t 04:00:00
-#SBATCH --partition=chipilskigroup_q
+#SBATCH --account=backfill2
+#SBATCH -t 00:15:00
+#SBATCH --partition=backfill2
 #SBATCH --priority=${ADVANCE_PRIORITY}
-#SBATCH -n 84
-#SBATCH --mem-per-cpu=8000M
+#SBATCH -n 64
+#SBATCH --nodes=10
+#SBATCH --mem-per-cpu=4000M
+#SBATCH -C "intel,YEAR2013|intel,YEAR2015|intel,YEAR2017|intel,YEAR2018|intel,YEAR2019"
 #=================================================================
 ulimit -s unlimited
 export MPI_SHEPHERD=FALSE
@@ -95,6 +97,7 @@ if [ -e wrfvar_output.nc ]; then
 
     chmod +x nclrun3.out
     ./nclrun3.out >& add_perts.out
+    echo "first perts added to member ${n} using wrfinput_d01_${gdate[0]}_${gdate[1]}_mean"
 
     if [ ! -s add_perts.err ]; then
         echo "Perts added to member ${n}"
@@ -122,4 +125,3 @@ EOF
 done
 echo "init done"
 exit 0
-

@@ -60,10 +60,10 @@ while true; do
 
     # gdate=($(${DART_DIR}/models/wrf/work/advance_time "$datea" 0 -g))
     gdate=($(echo $datea 0h -g | ${DART_DIR}/models/wrf/work/advance_time))
-    echo "gdate = $gdate"
+    echo "gdate = $gdate[1]"
     # gdatef=($(${DART_DIR}/models/wrf/work/advance_time "$datea" "${ASSIM_INT_HOURS}" -g))
     gdatef=( $(echo $datea ${ASSIM_INT_HOURS}h -g | ${DART_DIR}/models/wrf/work/advance_time) )
-    echo "gdatef = $gdatef"
+    echo "gdatef = $gdatef[1]"
 
     # wdate=$(${DART_DIR}/models/wrf/work/advance_time "$datea" 0 -w)
     wdate=$(echo "$datea" -w | "${DART_DIR}/models/wrf/work/advance_time")
@@ -100,7 +100,7 @@ while true; do
     if [ "$SUPER_PLATFORM" = 'slurm' ]; then
         ic_queue="chipilskigroup_q"
         logfile="${RUN_DIR}/ic_gen.log"
-        sub_command="srun --partition=${ic_queue} --time=00:05:00 --output=${logfile} --ntasks=1 --account=${COMPUTER_CHARGE_ACCOUNT}"
+        sub_command="srun --partition=${ic_queue} --time=00:05:00 --output=${logfile} --ntasks=1 --account=chipilskigroup_q"
     elif [ "$SUPER_PLATFORM" = 'derecho' ]; then
         ic_queue="main"
         sub_command="qsub -l select=1:ncpus=128:mpiprocs=128:mem=5GB -l walltime=00:03:00 -q ${ic_queue} -A ${COMPUTER_CHARGE_ACCOUNT} -j oe -k eod -N icgen"
@@ -188,12 +188,14 @@ while true; do
     # set this to move logs from srun to log file
 
     # Get wrfinput source information
+    echo "Copying ic as ${OUTPUT_DIR}/${datea}/wrfinput_d01_${gdate[0]}_${gdate[1]}_mean wrfinput_d01"
     ${COPY} "${OUTPUT_DIR}/${datea}/wrfinput_d01_${gdate[0]}_${gdate[1]}_mean" wrfinput_d01
     dn=1
     while [ "$dn" -le "$domains" ]; do
 
         dchar=$(printf "%02d" "$dn")
         ${COPY} "${OUTPUT_DIR}/${datea}/wrfinput_d${dchar}_${gdate[0]}_${gdate[1]}_mean" "wrfinput_d${dchar}"
+        echo "Copy other domains ${OUTPUT_DIR}/${datea}/wrfinput_d${dchar}_${gdate[0]}_${gdate[1]}_mean wrfinput_d${dchar}"
         dn=$((dn + 1))
 
     done
@@ -208,6 +210,7 @@ while true; do
         mkdir -p "${RUN_DIR}"/{Inflation_input,Output}
 
         if [ -e "${OUTPUT_DIR}/${datep}/Inflation_input/input_priorinf_mean.nc" ]; then
+            echo "Linking inflation files from ${OUTPUT_DIR}/${datep}/Inflation_input/ to ${RUN_DIR}/."
 
             ${LINK} "${OUTPUT_DIR}/${datep}/Inflation_input/input_priorinf"*.nc "${RUN_DIR}/."
             ${LINK} "${OUTPUT_DIR}/${datep}/Inflation_input/input_postinf"*.nc "${RUN_DIR}/."
@@ -221,7 +224,13 @@ while true; do
         fi
     fi   # ADAPTIVE_INFLATION file check
 
-    ${LINK} "${OUTPUT_DIR}/${datea}/obs_seq.out" .
+    # ${LINK} "${OUTPUT_DIR}/${datea}/obs_seq.out" .
+    ${COPY} "${OUTPUT_DIR}/${datea}/obs_seq.out"  "${RUN_DIR}/obs_seq.out"  || {
+    echo "FATAL: ${OUTPUT_DIR}/${datea}/obs_seq.out is missing"
+    touch ABORT_RETRO
+    exit 2
+    }
+
     ${REMOVE} "${RUN_DIR}/WRF"
     ${REMOVE} "${RUN_DIR}/prev_cycle_done"
     ${LINK} "${OUTPUT_DIR}/${datea}" "${RUN_DIR}/WRF"
@@ -238,14 +247,15 @@ while true; do
 #==================================================================\\
 #SBATCH --job-name=assimilate_${datea}\\
 #SBATCH --output=assimilate_${datea}.%j.log\\
-#SBATCH --account=chipilskigroup_q\\
+#SBATCH --account=backfill2\\
+#SBATCH --partition=backfill2\\
 #SBATCH --constraint="intel"\\
-#SBATCH --time=06:00:00\\
-#SBATCH -n 96\\
-#SBATCH --nodes=16\\
-#SBATCH --mem-per-cpu=8000M\\
+#SBATCH --time=00:30:00\\
+#SBATCH -n 64\\
+#SBATCH --nodes=10\\
+#SBATCH --mem-per-cpu=4000M\\
+#SBATCH -C "intel,YEAR2013|intel,YEAR2015|intel,YEAR2017|intel,YEAR2018|intel,YEAR2019"\\
 #SBATCH --export=ALL\\
-
 #==================================================================
 s%\${1}%${datea}%g
 s%\${2}%${paramfile}%g
@@ -257,6 +267,7 @@ EOF
             echo "USING RESERVATION," $(/contrib/lsf/get_my_rsvid)
             bsub -U "$(/contrib/lsf/get_my_rsvid)" < assimilate.sh
         else
+            echo "Submitting assimilate.sh"
             sbatch assimilate.sh
         fi
         this_filter_runtime="${FILTER_TIME}"
@@ -282,7 +293,7 @@ s%\${2}%${paramfile}%g
 EOF
 
         sed -f script.sed "${SHELL_SCRIPTS_DIR}/assimilate.sh" > assimilate.sh
-
+        echo "Submitting assimilate.sh"
         sbatch assimilate.sh
 
         this_filter_runtime="${FILTER_TIME}"
@@ -424,12 +435,13 @@ EOF
 #==================================================================\\
 #SBATCH --job-name=assim_advance_${n}\\
 #SBATCH --output=assim_advance_${n}.%j.log\\
-#SBATCH --account=chipilskigroup_q\\
+#SBATCH --account=backfill2\\
 #SBATCH --constraint="intel"\\
-#SBATCH --time=06:00:00\\
-#SBATCH -n 50\\
-#SBATCH --nodes=10\\
-#SBATCH --mem-per-cpu=8000M\\
+#SBATCH --time=00:15:00\\
+#SBATCH -n 64\\
+#SBATCH --nodes=8\\
+#SBATCH --mem-per-cpu=4000M\\
+#SBATCH -C "intel,YEAR2013|intel,YEAR2015|intel,YEAR2017|intel,YEAR2018|intel,YEAR2019"\\
 #SBATCH --export=ALL\\
 #==================================================================
 s%\${1}%${datea}%g
@@ -604,13 +616,13 @@ EOF
     gzip -f wrfinput_d*_"${gdate[0]}"_"${gdate[1]}"_mean wrfinput_d*_"${gdatef[0]}"_"${gdatef[1]}"_mean wrfbdy_d*_mean
     tar -cvf retro.tar obs_seq.out wrfin*.gz wrfbdy_d*.gz
     tar -rvf dart_data.tar obs_seq.out obs_seq.final wrfinput_d*.gz wrfbdy_d*.gz \
-                          Inflation_input/* logs/* *.dat input.nml
+                          Inflation_input/* *.dat logs/* input.nml #
     ${REMOVE} wrfinput_d*_"${gdate[0]}"_"${gdate[1]}"_mean.gz wrfbdy_d*.gz
     gunzip -f wrfinput_d*_"${gdatef[0]}"_"${gdatef[1]}"_mean.gz
 
     cd "${RUN_DIR}"
     # ${MOVE} "${RUN_DIR}/assim"*.o*            "${OUTPUT_DIR}/${datea}/logs/." ##slurm dont create these
-    ${MOVE} "${RUN_DIR}"/*log                 "${OUTPUT_DIR}/${datea}/logs/."
+    # ${MOVE} "${RUN_DIR}"/*log                 "${OUTPUT_DIR}/${datea}/logs/."
     ${REMOVE} "${RUN_DIR}/input_priorinf_"*
     ${REMOVE} "${RUN_DIR}/static_data"*
     touch prev_cycle_done
@@ -621,10 +633,12 @@ EOF
     if [ "$restore" = "1" ]; then
         if [ "$datea" = "$datefnl" ]; then
             echo "Reached the final date"
-            echo "Script exiting normally"
+    echo "Script exiting normally"
             exit 0
         fi
-        datea=$(${DART_DIR}/models/wrf/work/advance_time "$datea" "${ASSIM_INT_HOURS}")
+        # datea=$(${DART_DIR}/models/wrf/work/advance_time "$datea" "${ASSIM_INT_HOURS}")
+        datea=$(echo "$datea $ASSIM_INT_HOURS" | "${DART_DIR}/models/wrf/work/advance_time")
+
         echo "datea = $datea"
     else
         echo "Script exiting normally cycle ${datea}"
